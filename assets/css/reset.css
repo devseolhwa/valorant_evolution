@@ -104,7 +104,7 @@ h1, h2, h3, h4, h5, h6 {margin: 0;padding: 0;font-weight: 600;font-size: inherit
 strong, b {font-weight: 600;}
 caption, legend {position: absolute;top: -9999px;left: -9999px;}
 input, textarea, select, label, button {display: inline-block;vertical-align: middle;font-size: inherit;font-family: inherit;line-height: inherit;}
-input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"] {height: 80px;padding: 0 30px;background: transparent;border: 2px solid #8B978F;box-sizing: border-box;font-size: 24px;color: #0F1923;font-weight: 700;}
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"] {height: 80px;padding: 0 30px;background: transparent;border: 2px solid #8B978F;border-radius: 0;box-sizing: border-box;font-size: 24px;color: #0F1923;font-weight: 700;}
 input[type="checkbox"], input[type="radio"] {padding: 0;border: 0;box-sizing: border-box;}
 input[type="image"] {border: 0 none;}
 input[type="text"], img, select {vertical-align: middle;}
