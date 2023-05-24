@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>발로란트 에볼루션</title>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <script src="assets/js/lib/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/lib/gsap.min.js"></script>
+    <script src="assets/js/lib/ScrollTrigger.min.js"></script>
+    <script src="assets/js/lib/skrollr.min.js"></script>
+    <script src="assets/js/ScrambleTextPlugin.js"></script>
+    <script src="assets/js/lib/swiper.min.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/ui.js"></script>
+
+</head>
+<body>
+    
+    <!-- 라이엇바 상단 -->
+    <header id="riotbar-header"></header>
+    <header id="top-menu"></header>
+
+    <div class="wrap">
+        <div class="valorantBar"></div>
+
+        <a href="#leftmenu" id="btnMenuOpen"><span>메뉴열기</span></a>
+        <div id="leftmenu">
+            <h4>// 진행 중인 이벤트</h4>
+            <ul class="bannerGroup">
+                <li>
+                    <a href="#">
+                        <img src="assets/images/img_banner01.jpg" alt="">
+                        <p><img src="assets/images/icon_dotArrow.png" alt="">VAL조각 이벤트</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="assets/images/img_banner02.jpg" alt="">
+                        <p><img src="assets/images/icon_dotArrow.png" alt="">사이VAL대학교</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="assets/images/img_banner01.jpg" alt="">
+                        <p><img src="assets/images/icon_dotArrow.png" alt="">VAL조각 이벤트</p>
+                    </a>
+                </li>
+            </ul>
+            <h4>// 발로란트 공식 채널</h4>
+            <div class="channelGroup">
+                <a href="#" target="_blank" title="새창열림"><img src="assets/images/icon_channel01.png" alt="발로란트 채널"></a>
+                <a href="#" target="_blank" title="새창열림"><img src="assets/images/icon_channel02.png" alt="발로란트 유튜브"></a>
+                <a href="#" target="_blank" title="새창열림"><img src="assets/images/icon_channel03.png" alt="발로란트 인스타그램"></a>
+                <a href="#" target="_blank" title="새창열림"><img src="assets/images/icon_channel04.png" alt="발로란트 페이스북"></a>
+            </div>
+            <button type="button" id="btnMenuclose">메뉴닫기</button>
+        </div><!-- leftmenu end -->
+
+        <div class="visualSection">
+            <div class="visualVedio">
+                <video preload="true" muted="" loop="" playsinline="" autoplay src="https://assets.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt778f65cedfee54fd/63bcad5b08dfb21202a7794d/VAL_Ep6_Homepage-CG-Video_V5.mp4" poster="https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blte299f23c6e55ebed/63bcad4899e03c1edced9b6f/VAL_Ep6_Homepage-CG-Still.jpg">
+                </video>
+            </div>
+            <div class="visualInner">
+                <div class="visualText">
+                    <div class="textValorant"><img src="assets/images/text_valorant_red.png" alt="VALORANT"></div>
+                    <div class="textEffectHidden">
+                        <div class="textEffect titleLg">에볼루션</div>
+                    </div>
+                    <div class="textSm colorRed"><span class="scrambleText" id="textDday"></span> 공개 예정 // D-14</div>
+                    <p>발로란트의 새로운 시작, <br class="mobileShow" />지금 사전예약 진행 중</p>
+                </div><!-- visualText end -->
+                <div class="btnLine">
+                    <a href="#target" class="btn lg bgRed" id="btnReservation">
+                        <span class="bgRedHover"></span>
+                        <span>사전예약 신청하기</span>
+                    </a>
+                </div>
+            </div><!-- visualInner end -->
+            <button type="button" id="btnEvent"><span>이벤트 공유하기</span></button>
+        </div><!-- visualSection end -->
+
+        <div class="reservationSection">
+            <div id="target"></div>
+            <div class="scrolltop"><img src="assets/images/text_valorant_vertical.png" alt="valorant"/></div>
+            <!-- <div class="effectLayer effectLayer01 front" data-bottom-top="transform: translate3d(0, 500px, 0)" data-top-bottom="transform: translate3d(0, -500px, 0)"><img src="assets/images/text_valorant_vertical.png" alt="valorant"/></div> -->
+            <div class="reservationInner">
+                <div class="reservationArea">
+                    <ul class="inputList">
+                        <li>
+                            <input type="text" id="bdNumber" title="휴대폰번호 입력" placeholder="휴대폰 번호를 입력하세요" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                            <!-- [전달사항] .btnBgGray .on 추가시 활성화 -->
+                            <button type="button" class="btn md btnBgGray on" onclick="modarOpen('#modarConfirm');">인증 요청</button>
+                        </li>
+                        <li>
+                            <input type="text" id="bdNumberConfirm" title="인증코드 입력" placeholder="인증코드를 입력하세요" maxlength="6" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                            <!-- [전달사항] .btnBgGray .on 추가시 활성화 -->
+                            <button type="button" class="btn md btnBgGray">인증코드 확인</button>
+                            <!-- [전달사항] 상황에 맞게 .msgGray .msgRed 노출 -->
+                            <p class="msgGray">인증코드를 발송했습니다. (남은 시간 5:00)</p>
+                            <p class="msgRed">*카카오톡 라이엇게임즈 채널의 ‘알림톡 받지 않기’가 설정 되어 있는 경우 인증코드를 받으실 수 없습니다. 라이엇게임즈 채널의 알림톡 차단을 해지하신 후 다시 시도하여 주시기 바랍니다.</p>
+                        </li>
+                        <li>
+                            <input type="text" id="bdInvitationCode" title="친구 초대 코드 입력" placeholder="(선택)친구 초대 코드" value="" />
+                            <p class="msgRed">유효하지 않은 초대 코드입니다.</p>
+                        </li>
+                    </ul><!-- inputList end -->
+                    <ul class="checkboxList">
+                        <li>
+                            <div class="reservationCheck reservationCheckAll">
+                                <input type="checkbox" id="reservationCheckAll">
+                                <label for="reservationCheckAll">아래 내용에 대해 모두 동의합니다.</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="reservationCheck">
+                                <input type="checkbox" id="reservationService">
+                                <label for="reservationService">[필수] 15세 이상이며, 이벤트 유의사항에 동의합니다.</label>
+                                <button type="button" class="btnPrivacy">자세히 보기</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="reservationCheck">
+                                <input type="checkbox" id="reservationPrivacy">
+                                <label for="reservationPrivacy">[필수] 개인정보 수집 및 이용에 동의합니다.</label>
+                                <button type="button" class="btnPrivacy">자세히 보기</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="reservationCheck">
+                                <input type="checkbox" id="reservationNews">
+                                <label for="reservationNews">[선택] 마케팅 및 광고 활용에 대해 동의합니다.</label>
+                                <button type="button" class="btnPrivacy">자세히 보기</button>
+                            </div>
+                        </li>
+                    </ul><!-- checkboxList end -->
+                    <div class="btnLine">
+                        <button type="button" class="btn lg bgRed" id="btnReservationFull">
+                            <span class="bgRedHover"></span>
+                            <span>사전예약 신청하기</span>
+                        </button>
+                    </div>
+                    <button type="button" id="btnPhoneLogin">이미 사전예약을 했다면 휴대폰 번호로 로그인하기</button>
+                </div><!-- reservationArea end -->
+            </div><!-- reservationInner end -->
+        </div><!-- reservationSection end -->
+
+        <div class="productSection">
+            <div class="productInner">
+                <div class="productText">
+                    <p class="date">2023.06.28</p>
+                    <div class="title">
+                        <div class="textEffectHidden">
+                            <h3 class="textEffect"><span>에피소드7: 에볼루션</span>과
+                            </h3>
+                        </div>
+                        <div class="textEffectHidden">
+                            <h3 class="textEffect">함께 찾아오는</h3>
+                        </div>
+                        <div class="textEffectHidden">
+                            <h3 class="textEffect">역대급 경품을 기대하세요</h3>
+                        </div>
+                    </div>
+                    <p class="text">
+                        사전예약으로 획득한 에피소드7: 에볼루션 카드 오픈 기회와 함께,<br />
+                        새로운 미션 이벤트가 요원 여러분을 기다립니다.
+                    </p>
+                </div><!-- productText end -->
+                <div class="productSlide">
+
+                </div><!-- productSlide end -->
+            </div><!-- productInner end -->
+        </div><!-- productSection end -->
+
+        <div class="updateSection">
+            <div class="updateInner">
+                <div class="BgSlideImg">
+                    <p>
+                    <!-- 
+                        <video preload="true" muted="" loop="" playsinline="" autoplay src=""></video>
+                        <img src="" alt=""> 
+                    -->
+                    </p>
+                </div>
+                <div class="updateText">
+                    <div class="textEffectHidden">
+                        <h3 class="textEffect title">발로란트, 새로운 차원으로의 진화</h3>
+                    </div>
+                    <p class="text">에피소드7: 에볼루션의 주요 업데이트 내용을 지금 미리 확인해보세요.</p>
+                </div>
+                <div class="updateTextSlide">
+                    <div class="textItem">
+                        <!-- [전달사항] .title 최대 10글자 .text 최대 85글자로 잡아주세요. -->
+                        <p class="title">팀 데스매치 팀 데스매치 팀</p>
+                        <p class="text">레디어나이트 포인트, 게이밍 기어, 문화상품권, 인게임 아이템 등 다양한 경품을 100% 획득할 수 있는 에피소드7 에볼루션 상자가 등장했습니다.</p>
+                    </div>
+                    <div class="textItem">
+                        <p class="title">팀 데스매치</p>
+                        <p class="text">레디어나이트 포인트, 게이밍 기어, 문화상품권, 인게임 아이템 등 다양한 경품을 100% 획득할 수 있는 에피소드7 에볼루션 상자가 등장했습니다.</p>
+                    </div>
+                    <div class="textItem">
+                        <p class="title">팀 데스매치 팀 데스매치</p>
+                        <p class="text">레디어나이트 포인트, 게이밍 기어, 문화상품권, 인게임 아이템 등 다양한 경품을 100% 획득할 수 있는 에피소드7 에볼루션 상자가 등장했습니다.</p>
+                    </div>
+                    <div class="textItem">
+                        <p class="title">팀 데스매치</p>
+                        <p class="text">레디어나이트 포인트, 게이밍 기어, 문화상품권, 인게임 아이템 등 다양한 경품을 100% 획득할 수 있는 에피소드7 에볼루션 상자가 등장했습니다.</p>
+                    </div>
+                </div><!-- updateTextSlide end -->
+                <div class="updateThumbSlide">
+                    <div class="thumbItem">
+                        <a href="#" target="_blank" title="새창열림">
+                            <p class="Thumb">
+                                <video preload="true" muted="" loop="" playsinline="" autoplay src="https://assets.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt778f65cedfee54fd/63bcad5b08dfb21202a7794d/VAL_Ep6_Homepage-CG-Video_V5.mp4" poster="https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blte299f23c6e55ebed/63bcad4899e03c1edced9b6f/VAL_Ep6_Homepage-CG-Still.jpg">
+                                </video>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="thumbItem">
+                        <a href="#" target="_blank" title="새창열림">
+                            <p class="Thumb"><img src="assets/images/img_news02.jpg" alt=""></p>
+                        </a>
+                    </div>
+                    <div class="thumbItem">
+                        <a href="#" target="_blank" title="새창열림">
+                            <p class="Thumb"><img src="assets/images/img_news01.jpg" alt=""></p>
+                        </a>
+                    </div>
+                    <div class="thumbItem">
+                        <a href="#" target="_blank" title="새창열림">
+                            <p class="Thumb"><img src="assets/images/img_news02.jpg" alt=""></p>
+                        </a>
+                    </div>
+                </div><!-- updateThumbSlide end -->
+                <div class="updateArrow">
+                    <button class="prev">Prev</button>
+                    <button class="next">Next</button>
+                </div>
+            </div><!-- updateInner end -->
+            <div class="scrollLeft"><img src="assets/images/text_valorant_horizontal.png" alt="valorant"></div>
+        </div><!-- updateSection end -->
+
+    </div><!-- wrap end -->
+
+    <!-- 라이엇바 하단 -->
+    <footer id="riotbar-footer"></footer>
+    <script defer="defer" src="https://cdn.rgpub.io/public/live/riotbar/latest/kr-valorant-evergreen.ko_KR.js"></script><!-- 라이엇바 상하단 js -->
+    
+</body>
+</html>

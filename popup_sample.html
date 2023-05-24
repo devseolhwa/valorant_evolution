@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>발로란트 에볼루션</title>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/popup.css">
+
+    
+    <script src="assets/js/lib/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/lib/gsap.min.js"></script>
+    <script src="assets/js/lib/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrambleTextPlugin.js"></script>
+    <script src="assets/js/lib/swiper.min.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script src="assets/js/popup.js"></script>
+</head>
+<body>
+
+    <!-- 라이엇바 상단 -->
+    <header id="riotbar-header"></header>
+    <header id="top-menu"></header>
+
+    <div class="wrap">
+
+        <div class="popupSample">
+            <!-- 
+                [전달사항] 팝업영역은 하단에 section으로 추가되어 있습니다.
+                modarOpen('') #값명과 하단의 section #값이 동일해야 합니다. 
+            -->
+            <button onclick="modarOpen('#modarBasicType01');">기본 안내 팝업1</button>
+            <button onclick="modarOpen('#modarBasicType02');">기본 안내 팝업2</button>
+            <button onclick="modarOpen('#modarCheckType01');">확인 팝업1</button>
+            <button onclick="modarOpen('#modarCheckType02');">확인 팝업2</button>
+            <button onclick="modarOpen('#modarConsent');">개인정보 수집 및 이용 동의</button>
+            <button onclick="modarOpen('#modarCardItem');">에피소드7: 에볼루션 카드 전체 상품</button>
+            <button onclick="modarOpen('#modarEventShare');">이벤트 공유하기</button>
+            <button onclick="modarOpen('#modarLoginType01');">로그인 팝업</button>
+            <button onclick="modarOpen('#modarLoginType02');">로그인 팝업 - 인증요청</button>
+            <button onclick="modarOpen('#modarLoginType03');">로그인 팝업 - 재인증요청</button>
+            <button onclick="modarOpen('#modarLoginType04');">로그인 팝업 - 인증성공</button>
+            <button onclick="modarOpen('#modarLoginType05');">로그인 팝업 - 2중팝업</button>
+        </div>
+
+        <!-- 기본 안내 팝업1 start -->
+        <section class="modarPopup" id="modarBasicType01">
+            <div class="modarCenter">
+                <div class="modarInner">
+                    <div class="modarBody">
+                        <p class="popupTextMd">인증코드가 이미 전송 되었습니다.</p>
+                        <button type="button" class="jsModarClose on">확인</button>
+                    </div><!-- modarBody end -->
+                    <button type="button" class="btnCloseModar">닫기</button>
+                </div><!-- modarInner end -->
+            </div><!-- modarCenter end -->
+        </section>
+        <!-- 기본 안내 팝업1 end -->
+
+        <!-- 기본 안내 팝업2 start -->
+        <section class="modarPopup" id="modarBasicType02">
+            <div class="modarCenter">
+                <div class="modarInner">
+                    <div class="modarBody">
+                        <p class="popupTextMd">
+                            사전예약을 완료하신 후 <br />
+                            휴대폰 로그인이 가능합니다.
+                        </p>
+                        <button type="button" class="jsModarClose on">확인</button>
+                    </div><!-- modarBody end -->
+                    <button type="button" class="btnCloseModar">닫기</button>
+                </div><!-- modarInner end -->
+            </div><!-- modarCenter end -->
+        </section>
+        <!-- 기본 안내 팝업2 end -->
+
+        <!-- 확인 팝업1 start -->
+        <section class="modarPopup" id="modarCheckType01">
+            <div class="modarCenter">
+                <div class="modarInner">
+                    <div class="modarBody">
+                        <h3 class="popupTitleMd">사전예약 완료</h3>
+                        <p class="popupTextSm">
+                            에피소드7: 에볼루션 카드 1개가 지급되었습니다.<br />
+                            친구를 초대하여 카드를 추가 획득할 수 있습니다.
+                        </p>
+                        <p class="popupTextXs">*에볼루션 카드는 6월 28일부터 오픈 가능</p>
+                        <button type="button" class="jsModarClose on">확인</button>
+                    </div><!-- modarBody end -->
+                </div><!-- modarInner end -->
+            </div><!-- modarCenter end -->
+        </section>
+        <!-- 확인 팝업1 end -->
+
+        <!-- 확인 팝업2 start -->
+        <section class="modarPopup" id="modarCheckType02">
+            <div class="modarCenter">
+                <div class="modarInner">
+                    <div class="modarBody">
+                        <h3 class="popupTitleMd">사전예약을 취소<br />하시겠습니까?</h3>
+                        <p class="popupTextSm">
+                            게임의 업데이트 정보를 받으실 수 없으며<br />
+                            사전예약 보상이 모두 취소됩니다.
+                        </p>
+                        <button type="button" class="jsModarClose on">확인</button>
+                    </div><!-- modarBody end -->
+                </div><!-- modarInner end -->
+            </div><!-- modarCenter end -->
+        </section>
+        <!-- 확인 팝업2 end -->
+
+        <!-- 개인정보 수집 및 이용 동의 start -->
+        <section class="modarPopup" id="modarConsent">
+            <div class="modarCenter">
+                <div class="modarInner">
+                    <div class="modarBody">
+                        <h3 class="popupTitleSm">개인정보 수집 및 이용 동의</h3>
+                        <div class="scrollBox">
+                            약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 
+                            <ul class="dotList">
+                                <li>불릿</li>
+                                <li>불릿</li>
+                                <li>불릿</li>
+                            </ul>
+                            약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용
+                        </div>
+                    </div><!-- modarBody end -->
+                    <button type="button" class="btnCloseModar">닫기</button>      
+                </div><!-- modarInner end -->
+            </div><!-- modarCenter end -->
+        </section>
+        <!-- 개인정보 수집 및 이용 동의 end -->
+
+        <!-- 에피소드7: 에볼루션 카드 전체 상품 start -->
+        <section class="modarPopup" id="modarCardItem">
+            <div class="modarCenter">
+                <div class="modarInner">
+                    <div class="modarBody">
+                        <h3 class="popupTitleSm">에피소드7: 에볼루션 카드 전체 상품</h3>
+                        <div class="scrollBox">
+                            <ul class="dotList">
+                                <li>컬쳐랜드 1,000원</li>
+                                <li>컬쳐랜드 2,000원</li>
+                                <li>컬쳐랜드 3,000원</li>
+                                <li>투썸플레이스 떠먹는 스트로베리 초콜릿 생크림</li>
+                                <li>롯데리아 순살치킨하프팩</li>
+                                <li>맘스터치 싸이버거 세트</li>
+                                <li>빽다방 피스타치오 빽스치노(소프트)</li>
+                                <li>스타벅스 아이스 자몽 허니 블랙 티 T</li>
+                                <li>CU 빙그레 바나나우유240ml</li>
+                                <li>GS25 모바일 상품권 3천원권</li>
+                                <li>KFC 타워버거 </li>
+                                <li>CU 롯데 크런키 더블크런치바</li>
+                                <li>GS25 빼빼로 하나더 세트</li>
+                                <li>GS25 ABC 밀크 초콜릿 72g</li>
+                                <li>레이저 바실리스크 X 하이퍼스피드 무선 게이밍 마우스</li>
+                                <li>커세어 HS65 SURROUND 7.1</li>
+                                <li>로지텍G G413</li>
+                                <li>노트 - 네온</li>
+                                <li>노트 - 제트</li>
+                                <li>노트 - 체임버</li>
+                                <li>노트 - 레이나</li>
+                                <li>슬림텀블러 - VALORANT</li>
+                                <li>반팔티셔츠 - 네온</li>
+                                <li>반팔티셔츠 - 체임버</li>
+                                <li>쿠션 - 전원탑승</li>
+                                <li>장패드 - 제트</li>
+                                <li>장패드 - 일월오봉도</li>
+                                <li>힙색 (2022ver)</li>
+                                <li>캡모자(2022ver)</li>
+                                <li>캔버스백 - 블랙</li>
+                                <li>컬쳐랜드 30,000원</li>
+                                <li>LG전자 80cm QHD 울트라기어 게이밍 모니터</li>
+                            </ul>
+                        </div>
+                    </div><!-- modarBody end -->
+                    <button type="button" class="btnCloseModar">닫기</button>      
+                </div><!-- modarInner end -->
+            </div><!-- modarCenter end -->
+        </section>
+        <!-- 에피소드7: 에볼루션 카드 전체 상품 end -->
+
+        <!-- 이벤트 공유하기 start -->
+        <section class="modarPopup" id="modarEventShare">
+            <div class="modarCenter">
+                <div class="modarInner">
+                    <div class="modarBody">
+                        <h3 class="popupTitleLg">이벤트<br />공유하기</h3>
+                        <!-- [전달사항] value 값에 복사할 url을 넣어주세요. -->
+                        <input type="text" value="공유 url 넣기" id="input_url" style="position: absolute;top: -9999em;">
+                        <div class="shareBtnGroup">
+                            <button type="button" onclick="urlCopy();" class="shareUrl CloseModar ">url</button>
+                            <button type="button" onclick="toastPopup();" class="shareKakao CloseModar">카카오톡</button>
+                            <button type="button" onclick="toastPopup();" class="shareFacebook CloseModar">페이스북</button>
+                            <button type="button" onclick="toastPopup();" class="shareTwitter CloseModar">트위터</button>
+                        </div>
+                    </div><!-- modarBody end -->
+                    <button type="button" class="btnCloseModar">닫기</button> 
+                </div><!-- modarInner end -->
+            </div><!-- modarCenter end -->
+        </section>
+        <!-- 이벤트 공유하기 end -->
+
+        <div id="toast"><div id="desc">URL이 복사되었습니다.</div></div>
+
+        <!-- 로그인 팝업 start -->
+        <section class="modarPopup modarPopupFull" id="modarLoginType01">
+            <div class="modarCenter">
+                <div class="modarInner">
+                    <div class="modarBody">
+                        <h3 class="popupTitleXs">
+                            사전예약한 휴대폰 번호로<br />
+                            로그인하세요.
+                        </h3>
+                        <div class="confirmArea">
+                            <div class="inputGroup">
+                                <input type="text" id="bdNumber" title="휴대폰번호 입력" placeholder="휴대폰 번호" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                                <!-- [전달사항] .btnBgGray .on 추가시 활성화 -->
+                                <button type="button" class="btn md btnBgGray">인증 요청</button>
+                            </div>
+                            <div class="inputGroup">
+                                <input type="text" id="bdNumberConfirm" title="인증코드 입력" placeholder="인증코드" maxlength="6" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                                <!-- [전달사항] .btnBgGray .on 추가시 활성화 -->
+                                <button type="button" class="btn md btnBgGray">인증코드 확인</button>
+                            </div>
+                        </div>
+                        <!-- [전달사항] 확인 버튼 활성화시 .jsModarClose .on 추가 -->
+                        <button type="button" class="jsModarClose">확인</button> 
+                    </div><!-- modarBody end -->
+                    <button type="button" class="btnCloseModar">닫기</button> 
+                </div><!-- modarInner end -->
+            </div><!-- modarCenter end -->
+        </section>
+        <!-- 로그인 팝업 end -->
+
+        <!-- 로그인 팝업 start -->
+        <section class="modarPopup modarPopupFull" id="modarLoginType02">
+            <div class="modarCenter">
+                <div class="modarInner">
+                    <div class="modarBody">
+                        <h3 class="popupTitleXs">
+                            사전예약한 휴대폰 번호로<br />
+                            로그인하세요.
+                        </h3>
+                        <div class="confirmArea">
+                            <div class="inputGroup">
+                                <input type="text" id="bdNumber" title="휴대폰번호 입력" placeholder="휴대폰 번호" value="01012345678" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                                <!-- [전달사항] .btnBgGray .on 추가시 활성화 -->
+                                <button type="button" class="btn md btnBgGray on">인증 요청</button>
+                            </div>
+                            <div class="inputGroup">
+                                <input type="text" id="bdNumberConfirm" title="인증코드 입력" placeholder="인증코드" maxlength="6" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                                <!-- [전달사항] .btnBgGray .on 추가시 활성화 -->
+                                <button type="button" class="btn md btnBgGray">인증코드 확인</button>
+                            </div>
+                            <p class="msg">인증코드를 발송했습니다. (남은 시간 5:00)</p>
+                        </div>
+                        <!-- [전달사항] 확인 버튼 활성화시 .jsModarClose .on 추가 -->
+                        <button type="button" class="jsModarClose">확인</button> 
+                    </div><!-- modarBody end -->
+                    <button type="button" class="btnCloseModar">닫기</button> 
+                </div><!-- modarInner end -->
+            </div><!-- modarCenter end -->
+        </section>
+        <!-- 로그인 팝업 end -->
+
+        <!-- 로그인 팝업 start -->
+        <section class="modarPopup modarPopupFull" id="modarLoginType03">
+            <div class="modarCenter">
+                <div class="modarInner">
+                    <div class="modarBody">
+                        <h3 class="popupTitleXs">
+                            사전예약한 휴대폰 번호로<br />
+                            로그인하세요.
+                        </h3>
+                        <div class="confirmArea">
+                            <div class="inputGroup">
+                                <input type="text" id="bdNumber" title="휴대폰번호 입력" placeholder="휴대폰 번호" value="01012345678" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                                <!-- [전달사항] .btnBgGray .on 추가시 활성화 -->
+                                <button type="button" class="btn md btnBgGray on">인증 요청</button>
+                            </div>
+                            <div class="inputGroup">
+                                <input type="text" id="bdNumberConfirm" title="인증코드 입력" placeholder="인증코드" maxlength="6" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                                <!-- [전달사항] .btnBgGray .on 추가시 활성화 -->
+                                <button type="button" class="btn md btnBgGray">인증코드 확인</button>
+                            </div>
+                            <p class="msg">인증코드를 발송했습니다. (남은 시간 5:00)</p>
+                            <p class="msg">*카카오톡 라이엇게임즈 채널의 ‘알림톡 받지 않기’가 설정 되어 있는 경우 인증코드를 받으실 수 없습니다. 라이엇게임즈 채널의 알림톡 차단을 해지하신 후 다시 시도하여 주시기 바랍니다.</p>
+                        </div>
+                        <!-- [전달사항] 확인 버튼 활성화시 .jsModarClose .on 추가 -->
+                        <button type="button" class="jsModarClose">확인</button> 
+                    </div><!-- modarBody end -->
+                    <button type="button" class="btnCloseModar">닫기</button> 
+                </div><!-- modarInner end -->
+            </div><!-- modarCenter end -->
+        </section>
+        <!-- 로그인 팝업 end -->
+
+        <!-- 로그인 팝업 start -->
+        <section class="modarPopup modarPopupFull" id="modarLoginType04">
+            <div class="modarCenter">
+                <div class="modarInner">
+                    <div class="modarBody">
+                        <h3 class="popupTitleXs">
+                            사전예약한 휴대폰 번호로<br />
+                            로그인하세요.
+                        </h3>
+                        <div class="confirmArea">
+                            <div class="inputGroup">
+                                <input type="text" id="bdNumber" title="휴대폰번호 입력" placeholder="휴대폰 번호" value="01012345678" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                                <!-- [전달사항] .btnBgGray .on 추가시 활성화 -->
+                                <button type="button" class="btn md btnBgGray on">인증 요청</button>
+                            </div>
+                            <div class="inputGroup">
+                                <input type="text" id="bdNumberConfirm" title="인증코드 입력" placeholder="인증코드" maxlength="6" value="123456" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                                <!-- [전달사항] .btnBgGray .on 추가시 활성화 -->
+                                <button type="button" class="btn md btnBgGray on">인증코드 확인</button>
+                            </div>
+                            <p class="msg">인증에 성공하였습니다.</p>
+                        </div>
+                        <!-- [전달사항] 확인 버튼 활성화시 .jsModarClose .on 추가 -->
+                        <button type="button" class="jsModarClose on">확인</button> 
+                    </div><!-- modarBody end -->
+                    <button type="button" class="btnCloseModar">닫기</button> 
+                </div><!-- modarInner end -->
+            </div><!-- modarCenter end -->
+        </section>
+        <!-- 로그인 팝업 end -->
+
+        <!-- 로그인 팝업 start -->
+        <section class="modarPopup modarPopupFull" id="modarLoginType05">
+            <div class="modarCenter">
+                <div class="modarInner">
+                    <div class="modarBody">
+                        <h3 class="popupTitleXs">
+                            사전예약한 휴대폰 번호로<br />
+                            로그인하세요.
+                        </h3>
+                        <div class="confirmArea">
+                            <div class="inputGroup">
+                                <input type="text" id="bdNumber" title="휴대폰번호 입력" placeholder="휴대폰 번호" value="01012345678"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                                <!-- [전달사항] .btnBgGray .on 추가시 활성화 -->
+                                <button type="button" class="btn md btnBgGray on" onclick="modarOpen('#modarConfirm');">인증 요청</button>
+                            </div>
+                            <div class="inputGroup">
+                                <input type="text" id="bdNumberConfirm" title="인증코드 입력" placeholder="인증코드" maxlength="6" value="" maxlength="6" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                                <!-- [전달사항] .btnBgGray .on 추가시 활성화 -->
+                                <button type="button" class="btn md btnBgGray on">인증코드 확인</button>
+                            </div>
+                            <p class="msg">인증에 성공하였습니다.</p>
+                        </div>
+                        <!-- [전달사항] 확인 버튼 활성화시 .jsModarClose .on 추가 -->
+                        <button type="button" class="jsModarClose">확인</button> 
+                    </div><!-- modarBody end -->
+                    <button type="button" class="btnCloseModar">닫기</button> 
+                </div><!-- modarInner end -->
+            </div><!-- modarCenter end -->
+        </section>
+        <!-- 로그인 팝업 end -->
+
+        <!-- 이중팝업 start -->
+        <section class="modarPopup" id="modarConfirm">
+            <div class="modarCenter">
+                <div class="modarInner">
+                    <div class="modarBody">
+                        <p class="popupTextMd">인증코드가 이미 전송 되었습니다.</p>
+                        <button type="button" class="jsModarClose on">확인</button>
+                    </div><!-- modarBody end -->
+                    <button type="button" class="btnCloseModar">닫기</button>
+                </div><!-- modarInner end -->
+            </div><!-- modarCenter end -->
+        </section>
+        <!-- 이중팝업 end -->
+
+    </div><!-- wrap end -->
+
+    <!-- 라이엇바 하단 -->
+    <footer id="riotbar-footer"></footer>
+
+    <script defer="defer" src="https://cdn.rgpub.io/public/live/riotbar/latest/kr-valorant-evergreen.ko_KR.js"></script><!-- 라이엇바 상하단 js -->
+    
+</body>
+</html>

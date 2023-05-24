@@ -1,0 +1,66 @@
+// modarPopup
+$(function () {
+	$(".modarPopup.show").each(function () {
+		modarOpen($(this));
+	});
+});
+
+var modarOpener = null;
+$(document).on("click", ".jsModarClose , .btnCloseModar, .CloseModar", function(e) {
+    var target = $(this).closest(".modarPopup").attr("id");
+    modarClose("#" + target, modarOpener);
+});
+
+function modarOpen(_target) {
+    $(_target).fadeIn("fast").addClass("show");
+    $(_target).attr("tabindex", "0").focus();
+    bodyScroll(true, $("body").width());
+}
+
+function modarClose(_target, _opener) {
+    bodyScroll(false);
+    var tg = null;
+
+    if (_opener) {
+        tg = $(_target);
+        modarOpener = $(_opener);
+    } else {
+        //tg = $(".modarPopup.show");
+        tg = $(_target);
+        modarOpener = null;
+    }
+
+    $(tg).fadeOut("fast").removeClass("show");
+    if (modarOpener !== null) {
+        modarOpener.focus();
+        modarOpener = null;
+    }
+}
+
+function bodyScroll(_status, _orgWidth) {
+    var $fixedObj = $("body");
+    if (_status) {
+        $("body").addClass("modarOpened");
+        if ($("html").get(0).scrollWidth > $("html").width() === false) {
+            $fixedObj.css("margin-right", $("body").width() - _orgWidth);
+        }
+    } else {
+        $fixedObj.css("margin-right", "");
+        $("body").removeClass("modarOpened");
+    }
+}
+function urlCopy() {
+    // url 복사
+    const input_url = document.getElementById("input_url");
+    input_url.select();
+    document.execCommand("copy");
+
+    var x = document.getElementById("toast")
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+}
+function toastPopup() {
+    var x = document.getElementById("toast")
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+}
