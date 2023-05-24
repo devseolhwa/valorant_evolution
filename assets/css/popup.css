@@ -26,8 +26,8 @@
 .scrollBox::-webkit-scrollbar-thumb {background: #8B978F;}/* 실질적 스크롤 바 */
 .scrollBox::-webkit-scrollbar-thumb:hover {background: #545a56;}/* 실질적 스크롤 바 위에 마우스를 올려다 둘 때 */
 .scrollBox::-webkit-scrollbar-thumb:active {background: #545a56;}/* 실질적 스크롤 바를 클릭할 때 */
-.dotList li{position: relative;padding-left: 24px;font-size: 16px;line-height: 190%;font-weight: 400;letter-spacing: -0.01em;}
-.dotList li:before{content: "";position: absolute;left: 10px;top: 12px;width: 4px;height: 4px;background-color: #0F1923;border-radius: 50%;}
+.scrollBox .dotList li{position: relative;padding-left: 24px;font-size: 16px;line-height: 190%;font-weight: 400;letter-spacing: -0.01em;}
+.scrollBox .dotList li:before{content: "";position: absolute;left: 10px;top: 12px;width: 4px;height: 4px;background-color: #0F1923;border-radius: 50%;}
 
 .shareBtnGroup{margin: 50px 0 10px;display: flex;align-items: center;flex-direction: row;}
 .shareBtnGroup button{position: relative;display: flex;align-items: center;justify-content: center;width: 60px;height: 60px;background-position: center;background-repeat: no-repeat;border: 1px solid #FF4655;box-sizing: border-box;overflow: hidden;text-indent: -9999px;white-space: nowrap;transition: .3s;-webkit-transition: .3s;}

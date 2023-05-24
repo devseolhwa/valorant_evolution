@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="assets/css/slick.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/popup.css">
 
     <script src="assets/js/lib/jquery-1.12.4.min.js"></script>
     <script src="assets/js/lib/gsap.min.js"></script>
@@ -19,6 +20,7 @@
     <script src="assets/js/lib/swiper.min.js"></script>
     <script src="assets/js/slick.js"></script>
     <script src="assets/js/ui.js"></script>
+    <script src="assets/js/popup.js"></script>
 
 </head>
 <body>
@@ -84,70 +86,54 @@
             <button type="button" id="btnEvent"><span>이벤트 공유하기</span></button>
         </div><!-- visualSection end -->
 
-        <div class="reservationSection">
-            <div id="target"></div>
-            <div class="scrolltop"><img src="assets/images/text_valorant_vertical.png" alt="valorant"/></div>
-            <!-- <div class="effectLayer effectLayer01 front" data-bottom-top="transform: translate3d(0, 500px, 0)" data-top-bottom="transform: translate3d(0, -500px, 0)"><img src="assets/images/text_valorant_vertical.png" alt="valorant"/></div> -->
-            <div class="reservationInner">
-                <div class="reservationArea">
-                    <ul class="inputList">
-                        <li>
-                            <input type="text" id="bdNumber" title="휴대폰번호 입력" placeholder="휴대폰 번호를 입력하세요" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-                            <!-- [전달사항] .btnBgGray .on 추가시 활성화 -->
-                            <button type="button" class="btn md btnBgGray on" onclick="modarOpen('#modarConfirm');">인증 요청</button>
-                        </li>
-                        <li>
-                            <input type="text" id="bdNumberConfirm" title="인증코드 입력" placeholder="인증코드를 입력하세요" maxlength="6" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-                            <!-- [전달사항] .btnBgGray .on 추가시 활성화 -->
-                            <button type="button" class="btn md btnBgGray">인증코드 확인</button>
-                            <!-- [전달사항] 상황에 맞게 .msgGray .msgRed 노출 -->
-                            <p class="msgGray">인증코드를 발송했습니다. (남은 시간 5:00)</p>
-                            <p class="msgRed">*카카오톡 라이엇게임즈 채널의 ‘알림톡 받지 않기’가 설정 되어 있는 경우 인증코드를 받으실 수 없습니다. 라이엇게임즈 채널의 알림톡 차단을 해지하신 후 다시 시도하여 주시기 바랍니다.</p>
-                        </li>
-                        <li>
-                            <input type="text" id="bdInvitationCode" title="친구 초대 코드 입력" placeholder="(선택)친구 초대 코드" value="" />
-                            <p class="msgRed">유효하지 않은 초대 코드입니다.</p>
-                        </li>
-                    </ul><!-- inputList end -->
-                    <ul class="checkboxList">
-                        <li>
-                            <div class="reservationCheck reservationCheckAll">
-                                <input type="checkbox" id="reservationCheckAll">
-                                <label for="reservationCheckAll">아래 내용에 대해 모두 동의합니다.</label>
+        <div class="shareSection">
+            <div class="shareInner">
+                <div class="shareFlex">
+                    <div class="shareCode">
+                        <div class="textEffectHidden">
+                            <div class="textEffect titleMd colorGray">친구 초대 코드</div>
+                        </div>
+                        <div class="codeCopy">
+                            <input type="text" value="4Ojdk890PTaxdg" id="inputCode" readonly />
+                            <button type="button" onclick="codeCopy();">코드 복사하기</button>
+                        </div><!-- codeCopy end -->
+                        <div class="shareListGroup">
+                            <h4>친구 초대 코드<br class="tabletHide" /> URL로 공유하기</h4>
+                            <div class="shareListBtn">
+                                <button type="button" onclick="urlCopy();" class="shareUrl CloseModar">url</button>
+                                <button type="button" class="shareKakao CloseModar">카카오톡</button>
+                                <button type="button" class="shareFacebook CloseModar">페이스북</button>
+                                <button type="button" class="shareTwitter CloseModar">트위터</button>
                             </div>
-                        </li>
-                        <li>
-                            <div class="reservationCheck">
-                                <input type="checkbox" id="reservationService">
-                                <label for="reservationService">[필수] 15세 이상이며, 이벤트 유의사항에 동의합니다.</label>
-                                <button type="button" class="btnPrivacy">자세히 보기</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="reservationCheck">
-                                <input type="checkbox" id="reservationPrivacy">
-                                <label for="reservationPrivacy">[필수] 개인정보 수집 및 이용에 동의합니다.</label>
-                                <button type="button" class="btnPrivacy">자세히 보기</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="reservationCheck">
-                                <input type="checkbox" id="reservationNews">
-                                <label for="reservationNews">[선택] 마케팅 및 광고 활용에 대해 동의합니다.</label>
-                                <button type="button" class="btnPrivacy">자세히 보기</button>
-                            </div>
-                        </li>
-                    </ul><!-- checkboxList end -->
-                    <div class="btnLine">
-                        <button type="button" class="btn lg bgRed" id="btnReservationFull">
-                            <span class="bgRedHover"></span>
-                            <span>사전예약 신청하기</span>
-                        </button>
-                    </div>
-                    <button type="button" id="btnPhoneLogin">이미 사전예약을 했다면 휴대폰 번호로 로그인하기</button>
-                </div><!-- reservationArea end -->
-            </div><!-- reservationInner end -->
-        </div><!-- reservationSection end -->
+                        </div>
+                        <div class="bottomBtnGroup">
+                            <button type="button" id="btnEventInfo">이벤트 유의사항</button>
+                            <button type="button" id="btnReservationCancel">사전예약 취소</button>
+                        </div>
+                    </div><!-- shareCode end -->
+                    <div class="shareCurrent">
+                        <ul class="currentNum">
+                            <li>
+                                <p class="title">보유한 카드</p>
+                                <p class="value"><strong>04</strong>장</p>
+                            </li>
+                            <li>
+                                <p class="title">초대한 친구</p>
+                                <p class="value"><strong>03</strong>명</p>
+                            </li>
+                        </ul>
+                        <span class="infoGray">*6월 28일부터 카드 오픈 가능</span>
+                        <div class="eventBubble">
+                            <p>친구 초대 10명 완료 시 <img src="assets/images/img_pointx10.svg" alt=""> 100% 지급!</p>
+                        </div>
+                        <ul class="dotList">
+                            <li>사전예약 완료 시 <b>에피소드7: 에볼루션 카드 1장</b> 즉시 지급</li>
+                            <li>친구 1명 초대할 때마다 <b>에피소드7: 에볼루션 카드 1장</b> 추가 지급(최대 10개)</li>
+                        </ul>
+                    </div><!-- shareCurrent end -->
+                </div><!-- shareFlex end -->
+            </div><!-- shareInner end -->
+        </div><!-- shareSection end -->
 
         <div class="productSection">
             <div class="productInner">

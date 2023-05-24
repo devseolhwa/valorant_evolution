@@ -209,5 +209,24 @@ $(document).ready(function(){
         arrows: false,
         //focusOnSelect: true
     });
-    
+
 });
+
+function urlCopy() {
+    // url 복사
+    const inputUrl = document.getElementById("inputUrl");
+    inputUrl.select();
+    document.execCommand("copy");
+
+    var x = document.getElementById("toast")
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+}
+function codeCopy() {
+    // 친구 초대 코드 복사
+    const inputCode = document.getElementById("inputCode");
+    inputCode.select();
+    document.execCommand("copy");
+
+    alert("초대코드가 복사 되었습니다.");
+}

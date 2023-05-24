@@ -49,18 +49,3 @@ function bodyScroll(_status, _orgWidth) {
         $("body").removeClass("modarOpened");
     }
 }
-function urlCopy() {
-    // url 복사
-    const input_url = document.getElementById("input_url");
-    input_url.select();
-    document.execCommand("copy");
-
-    var x = document.getElementById("toast")
-    x.className = "show";
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
-}
-function toastPopup() {
-    var x = document.getElementById("toast")
-    x.className = "show";
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
-}
