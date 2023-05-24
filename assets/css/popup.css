@@ -44,7 +44,7 @@
 .shareBtnGroup button.shareFacebook:hover{background-image: url(../images/icon_share_facebook_on.png);}
 .shareBtnGroup button.shareTwitter:hover{background-image: url(../images/icon_share_twitter_on.png);}
 
-#toast{position: fixed;top: 110px;left: 0;right:0;display: flex;align-items: center;justify-content: center;max-width: 0px;height: 70px;margin: 0 auto;visibility: hidden;background: rgba(255, 255, 255, 0.15);box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);backdrop-filter: blur(7.5px);text-align: center;z-index: 100000;}
+#toast{position: fixed;top: 110px;left: 0;right:0;display: flex;align-items: center;justify-content: center;max-width: 0px;height: 70px;margin: 0 auto;visibility: hidden;background: rgba(255, 255, 255, 0.15);box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);backdrop-filter: blur(7.5px);-webkit-backdrop-filter: blur(7.5px);text-align: center;z-index: 100000;}
 #toast #desc{font-size: 30px;color: #ECE8E1;font-weight: 600;line-height: 100%;text-align: center;overflow: hidden;white-space: nowrap;}
 #toast.show {visibility: visible;-webkit-animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;}
 
@@ -56,7 +56,6 @@
 .inputGroup #bdNumber, .inputGroup #bdNumberConfirm{padding: 0 180px 0 30px;}
 .inputGroup button{position: absolute;top: 10px;right: 10px;}
 .confirmArea .msg{margin-top: 10px;font-size: 14px;color: #484848;font-weight: 400;line-height: 150%;word-break: keep-all;}
-
 
 @media screen and (max-width: 767px){
     .modarInner{width: calc(100% - 40px);min-height: auto;padding: 30px;}

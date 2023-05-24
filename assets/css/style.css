@@ -78,10 +78,10 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 .visualSection .visualInner{position: relative;-ms-flex-align: center;-ms-flex-pack: center;align-items: center;display: -ms-flexbox;display: flex;-ms-flex-direction: column;flex-direction: column;justify-content: center;max-width: 1440px;width: 100%;height: 36vw;padding: 4rem 5%;margin: 0 auto;box-sizing: border-box;}
 .visualSection .visualInner:before{content: "";position: absolute;top: 0;left: 0;display: block;height: 100%;border-right: 1px solid rgba(236, 232, 225, 0.5);}
 .visualSection .visualInner:after{content: "";position: absolute;top: 0;right: 0;display: block;height: 100%;border-right: 1px solid rgba(236, 232, 225, 0.5);}
-.visualSection .visualInner .visualText{margin-bottom: 60px;}
 .visualSection .visualInner .visualText .textValorant{text-align: center;}
 .visualSection .visualInner .visualText .textValorant img{margin: 0 auto;}
 .visualSection .visualInner .visualText p{position: relative;margin-top: 20px;font-size: 24px;color: #ECE8E1;font-weight: 600;line-height: 110%;word-break: keep-all;text-align: center;letter-spacing: 0.1em;}
+.visualSection .visualInner .visualText + .btnLine{margin-top: 60px;}
 
 .reservationSection{position: relative;overflow: hidden;background-color: #0F1923;background-image: url(../images/bg_dot.png);background-position: center 166px;background-repeat: no-repeat;}
 .reservationSection #target{position: absolute;top: -79px;}
@@ -177,7 +177,7 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 
     .valorantBar{width: 60px;}
     .visualSection .visualInner{max-width: 80%;}
-    .visualSection .visualInner .visualText{margin-bottom: 40px;}
+    .visualSection .visualInner .visualText + .btnLine{margin-top: 40px;}
     .reservationSection .reservationInner{max-width: 80%;}
     .inputList{width: 100%;}
     .productSection .productInner{max-width: 80%;}
