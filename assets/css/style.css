@@ -9,7 +9,7 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 
 /* text */
 .titleMd{display: block;font-size: 70px;line-height: 1;font-weight: 400;font-family:"Black Han Sans", "Apple SD Gothic Neo";}
-.titleLg{display: block;margin-top: 22px;font-size: 150px;font-size: 7.8vw;line-height: 1;font-weight: 400;font-family:"Black Han Sans", "Apple SD Gothic Neo";text-align: center;letter-spacing: -0.01em;}
+.titleLg{display: block;margin-top: 22px;font-size: 150px;font-size: min(7.8vw, 150px);line-height: 1;font-weight: 400;font-family:"Black Han Sans", "Apple SD Gothic Neo";text-align: center;letter-spacing: -0.01em;}
 .titleXl{display: block;margin-top: 33px;font-size: 200px;line-height: 1;font-weight: 400;font-family:"Black Han Sans", "Apple SD Gothic Neo";text-align: center;}
 .textSm{font-size: 20px;line-height: 140%;font-weight: 500;text-align: center;letter-spacing: 0.2em;}
 .textMd{font-size: 23px;line-height: 140%;font-weight: 700;text-align: center;letter-spacing: 0.2em;}
@@ -112,18 +112,18 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 .reservationCheckAll label{font-size: 18px;font-weight: 500;}
 .reservationCheck input:checked + label:before{background-color: #FF4655;border-color: #FF4655;background-image: url(../images/icon_check.svg);}
 
-.shareSection{position: relative;max-height: 676px;overflow: hidden;background-color: #0F1923;background-image: url(../images/bg_invite.jpg);background-position: center top;background-repeat: no-repeat;}
+.shareSection{position: relative;overflow: hidden;background-color: #0F1923;background-image: url(../images/bg_invite.jpg);background-size: cover;background-position: center;background-repeat: no-repeat;}
 .shareSection .shareInner{position: relative;max-width: 1440px;width: 100%;padding: 105px 115px 50px 130px;margin: 0 auto;box-sizing: border-box;z-index: 9;}
 .shareSection .shareInner:before{content: "";position: absolute;top: 0;left: 0;display: block;height: 100%;border-right: 1px solid rgba(236, 232, 225, 0.5);}
 .shareSection .shareInner:after{content: "";position: absolute;top: 0;right: 0;display: block;height: 100%;border-right: 1px solid rgba(236, 232, 225, 0.5);}
 .shareFlex{position: relative; display: flex;flex-direction: row;justify-content: space-between;flex-wrap: wrap;align-items: center;}
 .shareFlex:before{content: "";display: block;position: absolute;top: 0;left: 0;width: 148px;height: 15px;background-color: #ECE8E1;transform-origin: left center;transition: transform 300ms ease-in-out;-webkit-animation: fillLine 1s ease-in-out both;-moz-animation: fillLine 1s ease-in-out both;-ms-keyframes: fillLine 1s ease-in-out both;-o-animation: fillLine 1s ease-in-out both;animation: fillLine 1s ease-in-out both;}
-.shareCode{max-width: 512px;padding-top: 55px;}
+.shareCode{position: relative;max-width: 512px;padding-top: 55px;}
 .shareCode .codeCopy{display: flex;flex-direction: row;align-items: center;max-width: 512px;height: 98px;padding: 20px;margin-top: 30px;background: #ECE8E1;box-sizing: border-box;}
 .shareCode .codeCopy #inputCode{width: calc(100% - 149px);height: 58px;padding: 0;border: 0;font-size: 50px;color: #0F1923;font-weight: 400;line-height: 100%;letter-spacing: 0.02em;text-align: center;font-family: "Tungsten-Bold";outline: none;}
 .shareCode .codeCopy button{width: 149px;height: 58px;background: #0F1923;font-size: 20px;color: #ECE8E1;font-weight: 700;line-height: 140%;}
 .shareListGroup{display: flex;align-items: flex-start;flex-direction: row;justify-content: space-between;margin-top: 30px;}
-.shareListGroup h4{padding-left: 33px;background-image: url(../images/icon_dotArrow.svg);background-position: left 7px;background-repeat: no-repeat;}
+.shareListGroup h4{padding-left: 33px;background-image: url(../images/icon_dotArrow.svg);background-position: left 7px;background-repeat: no-repeat;font-size: 20px;color: #ECE8E1;font-weight: 500;line-height: 140%;}
 .shareListBtn{display: flex;align-items: center;flex-direction: row;}
 .shareListBtn button{position: relative;display: flex;align-items: center;justify-content: center;width: 72px;height: 72px;background-color: #ECE8E1;background-position: center;background-repeat: no-repeat;border: 1px solid #ECE8E1;box-sizing: border-box;overflow: hidden;text-indent: -9999px;white-space: nowrap;transition: .3s;-webkit-transition: .3s;}
 .shareListBtn button + button{margin-left: 10px;}
@@ -162,7 +162,7 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 .updateSection{position: relative;overflow: hidden;}
 .updateSection .updateInner{position: relative;width: 100%;padding: 157px 0 217px;margin: 0 auto;box-sizing: border-box;}
 .updateText{position: relative;margin-bottom: 94px;text-align: center;box-sizing: border-box;z-index: 9;}
-.updateText .title{font-size: 110px;font-size: 5.5vw;color: #ECE8E1;font-weight: 400;line-height: 100%;word-break: keep-all;text-align: center;text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);font-family: 'Black Han Sans';}
+.updateText .title{font-size: 110px;font-size: min(5.5vw, 110px); color: #ECE8E1;font-weight: 400;line-height: 100%;word-break: keep-all;text-align: center;text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);font-family: 'Black Han Sans';}
 .updateText .text{margin-top: 20px;font-size: 20px;color: #ECE8E1;font-weight: 400;line-height: 160%;word-break: keep-all;text-align: center;letter-spacing: 0.02em;text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);}
 
 .BgSlideImg{position: absolute;top: 0;bottom: 0;left: 0;right: 0;width: 100%;height: 100%;overflow: hidden;}
@@ -217,7 +217,6 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .visualSection .visualInner .visualText + .btnLine{margin-top: 40px;}
     .reservationSection .reservationInner{max-width: 80%;}
     .inputList{width: 100%;}
-    .shareSection{max-height: inherit;background-size: cover;}
     .shareSection .shareInner{max-width: 80%;padding: 105px 3% 50px;}
     .shareCode .titleMd{font-size: 58px;}
     .shareCode, .shareCurrent{width: 45%;}
@@ -256,6 +255,15 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .inputList li input{height: 70px;padding: 0 20px;font-size: 20px;}
     .inputList li button{top: 8px;right: 8px;}
     .inputList li #bdNumber, .inputList #bdNumberConfirm{padding: 0 180px 0 20px;}
+    .shareSection{background-image: linear-gradient(to bottom, #FF4655 550px, #0F1923 550px 100%);}
+    .shareSection .shareInner{max-width: 90%;padding: 60px 3%;}
+    .shareFlex{flex-direction: column;}
+    .shareCode, .shareCurrent{width: 100%;max-width: 100%;}
+    .shareCode:before {content: "";position: absolute;width: calc(50% + 100px);height: 0;left: -100px;bottom: -60px;border-bottom: 0px solid #ff4655;border-top: 50px solid #ff4655;border-right: 35px solid transparent;border-left: 0 solid #ff4655;z-index: -1;}
+    .shareCurrent{margin-top: 100px;}
+    .shareCode .codeCopy{flex-direction: row;max-width: 100%;}
+    .shareCode .codeCopy #inputCode{width: calc(100% - 149px);}
+    .shareCurrent .infoGray{display: block;max-width: 360px;margin: 0 auto;}
     .productSection .productInner{max-width: 90%;}
 
 }
@@ -277,6 +285,8 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     #btnReservationFull{height: 70px;font-size: 20px;}
     #btnEvent{top: 85px;right: -22px;font-size: 12px;}
     #btnPhoneLogin{margin: 20px auto 0;font-size: 14px;}
+    #btnEventInfo{font-size: 14px;}
+    #btnReservationCancel{font-size: 12px;}
 
     .scrolltop{display: none;}
     .scrollLeft{bottom: -15px;width: 1113px;height: 172px;}
@@ -305,6 +315,35 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .checkboxList{margin: 27px 0 40px;}
     .reservationCheck label{font-size: 13px;}
     .reservationCheckAll label{font-size: 15px;}
+    .shareSection{background-image: linear-gradient(to bottom, #FF4655 400px, #0F1923 400px 100%);}
+    .shareSection .shareInner:before{height: 417px;}
+    .shareSection .shareInner:after{top: 300px;right: auto; left: 0;display: block;width: calc(100% + 30px);height: 0;border-right: 0;border-bottom: 1px solid rgba(236, 232, 225, 0.5);z-index: -1;}
+    .shareCode:before{bottom: -30px;border-top: 20px solid #ff4655;border-right: 15px solid transparent;}
+    .shareFlex:before{width: 94px;height: 10px;}    
+    .shareCode{padding-top: 30px;}
+    .shareCode .titleMd{font-size: 40px;}
+    .shareCode .codeCopy{height: 60px;margin-top: 15px;padding: 12px;}
+    .shareCode .codeCopy #inputCode{width: calc(100% - 92px);height: 31px;font-size: 30px;}
+    .shareCode .codeCopy button{width: 92px;height: 36px;font-size: 12px;}
+    .shareListGroup h4{padding-left: 25px;background-size: 17px 10px;background-position: left 4px;font-size: 14px;}
+    .shareListBtn button{width: 48px;height: 48px;}
+    .shareListBtn button + button{margin-left: 5px;}
+    .shareListBtn button.shareUrl{background-size: 26px 11px;}
+    .shareListBtn button.shareKakao{background-size: 30px 30px;}
+    .shareListBtn button.shareFacebook{background-size: 13px 26px;}
+    .shareListBtn button.shareTwitter{background-size: 26px 22px;}
+    .bottomBtnGroup{margin-top: 44px;}
+    .shareCurrent{margin-top: 70px;}
+    .shareCurrent .currentNum li:after{width: 50px;height: 6px;}
+    .shareCurrent .currentNum li + li{margin-left: 40px;}
+    .shareCurrent .currentNum li p{font-size: 18px;}
+    .shareCurrent .currentNum li p.value{font-size: 16px;}
+    .eventBubble{right: -50px;width: 197px;height: 99px;background-image: url(../images/bg_bubble_m.svg);}
+    .eventBubble p{font-size: 18px;}
+    .eventBubble p img{width: 74px;height: 45px;}
+    .shareCurrent .dotList{margin-top: 35px;}
+    .shareCurrent .dotList li{font-size: 16px;}
+
     .productSection:before, .productSection .productInner:before, .productSection .productInner:after{display: none;}
     .productSection .productInner{max-width: 100%;padding: 0 20px;}
     .updateSection .updateInner{padding: 88px 0 75px;}

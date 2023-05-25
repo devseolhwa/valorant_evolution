@@ -3,13 +3,13 @@ $(document).ready(function(){
     setTimeout(function(){
         textEffect();
     }, 800);
-
     // leftmenu
-    $(document).on("click", "#btnMenuOpen", function () {
+    $("#btnMenuOpen").click(function(){     
         $("#btnMenuOpen").addClass("open");
         $("#leftmenu").fadeIn("400").addClass("active");
         return false;
-    }).on("click", "#btnMenuclose", function () {
+    });
+    $("#btnMenuclose").click(function(){  
         $("#btnMenuOpen").removeClass("open");
         $("#leftmenu").removeClass("active");
         return false;
@@ -111,24 +111,14 @@ $(document).ready(function(){
     $("#reservationCheckAll").click(function() {
         allTerms();
     });
-    $("#reservationService").click(function() {
-        checkTerms();
-    });
-    $("#reservationPrivacy").click(function() {
-        checkTerms();
-    });
-    $("#reservationNews").click(function() {
+    $("#reservationService, #reservationPrivacy, #reservationNews").click(function() {
         checkTerms();
     });
     function allTerms() {
         if ($("#reservationCheckAll").is(":checked")) {
-            $("#reservationService").prop("checked",true);
-            $("#reservationPrivacy").prop("checked",true);
-            $("#reservationNews").prop("checked",true);
+            $("#reservationService, #reservationPrivacy, #reservationNews").prop("checked",true);
         } else {
-            $("#reservationService").prop("checked",false);
-            $("#reservationPrivacy").prop("checked",false);
-            $("#reservationNews").prop("checked",false);
+            $("#reservationService, #reservationPrivacy, #reservationNews").prop("checked",false);
         }
         return true;
     }
@@ -142,6 +132,7 @@ $(document).ready(function(){
         return true;
     }
 
+    // updateSection bg changes
     function bgChange() {
         $(".updateThumbSlide").each(function () {
             let current = $(this).find(".slick-current"),
@@ -153,8 +144,10 @@ $(document).ready(function(){
             $(".BgSlideImg").children("p").empty();
 
             if($(current).find(".Thumb").children().is("img")){
+                // 슬라이드가 이미지일때
                 $(".BgSlideImg").children("p").append("<img src='"+ imgSrc +"' alt=''>");
             } else if($(current).find(".Thumb").children().is("video")){
+                // 슬라이드가 영상일때
                 $(".BgSlideImg").children("p").append("<video preload='true' muted='' loop='' playsinline='' autoplay src='"+ videoSrc +"'></video>");
                 video[0].load();
                 video[0].play();
@@ -162,56 +155,78 @@ $(document).ready(function(){
         });
     }
 
-    $(".updateThumbSlide").on("init", function (event, slick) {
-        bgChange();
-        $(".updateArrow .prev").addClass("slick-disabled");
-    });
-    $(".updateThumbSlide").slick({
-        variableWidth: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: false,
-        autoplaySpeed: 3000,
-        speed: 700,
-        dots: false,
-        infinite: false,
-        pauseOnHover: false,
-        draggable: true,
-        arrows: true,
-        prevArrow: $(".updateArrow .prev"),
-        nextArrow: $(".updateArrow .next"),
-        asNavFor: ".updateTextSlide",
-    }).on("afterChange", function (event, slick, currentSlide) {
-        bgChange();
-        if (currentSlide === 0) {
+    // updateSection slide
+    let updateSectionCheck = $(".updateSection");
+    if (updateSectionCheck.length) {
+        $(".updateThumbSlide").on("init", function (event, slick) {
+            bgChange();
             $(".updateArrow .prev").addClass("slick-disabled");
-            $(".updateArrow .next").removeClass("slick-disabled");
-        } else {
-            $(".updateArrow .prev").removeClass("slick-disabled");
-        }
-        if (slick.slideCount === currentSlide + 1) {
-            $(".updateArrow .next").addClass("slick-disabled");
-        } else {
-            $(".updateArrow .next").removeClass("slick-disabled");
-        }
-    });
-    $(".updateTextSlide").slick({
-        fade: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: false,
-        autoplaySpeed: 3000,
-        asNavFor: ".updateThumbSlide",
-        adaptiveHeight: true,
-        dots: false,
-        infinite: false,
-        pauseOnHover: false,
-        arrows: false,
-        //focusOnSelect: true
-    });
+        });
+        $(".updateThumbSlide").slick({
+            variableWidth: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 3000,
+            speed: 700,
+            dots: false,
+            infinite: false,
+            pauseOnHover: false,
+            draggable: true,
+            arrows: true,
+            prevArrow: $(".updateArrow .prev"),
+            nextArrow: $(".updateArrow .next"),
+            asNavFor: ".updateTextSlide",
+        }).on("afterChange", function (event, slick, currentSlide) {
+            bgChange();
+            if (currentSlide === 0) {
+                $(".updateArrow .prev").addClass("slick-disabled");
+                $(".updateArrow .next").removeClass("slick-disabled");
+            } else {
+                $(".updateArrow .prev").removeClass("slick-disabled");
+            }
+            if (slick.slideCount === currentSlide + 1) {
+                $(".updateArrow .next").addClass("slick-disabled");
+            } else {
+                $(".updateArrow .next").removeClass("slick-disabled");
+            }
+        });
+        $(".updateTextSlide").slick({
+            fade: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 3000,
+            asNavFor: ".updateThumbSlide",
+            adaptiveHeight: true,
+            dots: false,
+            infinite: false,
+            pauseOnHover: false,
+            arrows: false
+        });
+    }
 
+    // 업데이트 내용 진입시 .start 추가
+    var isVisible = false;
+
+    $(window).on("scroll",function() {
+        if (checkVisible($(".updateSection"))&&!isVisible) {
+            $(".updateSection").addClass("start");
+            $(".updateThumbSlide, .updateTextSlide").slick("slickPlay");
+            isVisible = true;
+        }
+    });
+    function checkVisible( elm, eval ) {
+        eval = eval || "object visible";
+        var viewportHeight = $(window).height(),
+            wscrolltop = $(window).scrollTop(),
+            y = $(elm).offset().top,
+            elementHeight = $(elm).height();   
+        
+        if (eval == "object visible") return ((y < (viewportHeight + wscrolltop)) && (y > (wscrolltop - elementHeight)));
+        if (eval == "above") return ((y < (viewportHeight + wscrolltop)));
+    }
 });
-
 function urlCopy() {
     // url 복사
     const inputUrl = document.getElementById("inputUrl");
