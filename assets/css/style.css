@@ -303,8 +303,8 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .productSlideM {display: block;}
     .productSlideM .slick-slide{margin: 0 8px;}
     .productSlideM .flip-card-inner {position: relative;width: 100%;height: 100%;text-align: center;transition: transform 0.5s;transform-style: preserve-3d;}
-    .productSlideM .slick-current .flip-card .flip-card-inner {transform: rotateY(180deg);}
-    .productSlideM .flip-card-back {position: absolute;top: 0;width: 100%;height: 100%;-webkit-backface-visibility: hidden;backface-visibility: hidden;background-color: transparent;transform: rotateY(180deg);}
+    .productSlideM .slick-current .flip-card .flip-card-inner {transform: rotateY(180deg);-webkit-transform: rotateY(180deg);}
+    .productSlideM .flip-card-back {position: absolute;top: 0;width: 100%;height: 100%;-webkit-backface-visibility: hidden;backface-visibility: hidden;background-color: transparent;transform: rotateY(180deg);-webkit-transform: rotateY(180deg);}
     .productSlideM .flip-card-front {background-color: transparent;}
     .productSlideM .flip-card-inner img{max-width: 223px;margin: 0 auto;}
     .productSlideM .slick-dots{display: none !important;}
