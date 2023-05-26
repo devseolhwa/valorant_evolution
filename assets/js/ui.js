@@ -244,7 +244,7 @@ $(document).ready(function(){
     var isVisible = false;
 
     $(window).on("scroll",function() {
-        if (checkVisible($(".updateSection"))&&!isVisible){
+        if (checkVisible($(".updateThumbSlide"))&&!isVisible){
             $(".updateSection").addClass("start");
             $(".updateThumbSlide, .updateTextSlide").slick("slickPlay");
             isVisible = true;
@@ -265,7 +265,7 @@ $(document).ready(function(){
     var isVisible2 = false;
 
     $(window).on("scroll",function() {
-        if (checkVisible2($(".productSection"))&&!isVisible2){
+        if (checkVisible2($(".productSlide"))&&!isVisible2){
             $(".productSection").addClass("start");
             cardSlide.start(); // pc용 카드슬라이드 시작
             setTimeout(function(){
