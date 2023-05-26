@@ -147,7 +147,7 @@ $(document).ready(function(){
             variableWidth: true,
             infinite: true,
             pauseOnHover: false,
-            swipeToSlide: true,
+            swipeToSlide: 1,
             draggable: true,
             arrows: false,
             dots: true,
@@ -204,7 +204,7 @@ $(document).ready(function(){
             autoplaySpeed: 3000,
             speed: 700,
             dots: false,
-            infinite: true,
+            infinite: false,
             pauseOnHover: false,
             draggable: true,
             arrows: true,
@@ -234,7 +234,7 @@ $(document).ready(function(){
             asNavFor: ".updateThumbSlide",
             adaptiveHeight: true,
             dots: false,
-            infinite: true,
+            infinite: false,
             pauseOnHover: false,
             arrows: false
         });
