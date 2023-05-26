@@ -127,10 +127,10 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 .shareListBtn{display: flex;align-items: center;flex-direction: row;}
 .shareListBtn button{position: relative;display: flex;align-items: center;justify-content: center;width: 72px;height: 72px;background-color: #ECE8E1;background-position: center;background-repeat: no-repeat;border: 1px solid #ECE8E1;box-sizing: border-box;overflow: hidden;text-indent: -9999px;white-space: nowrap;transition: .3s;-webkit-transition: .3s;}
 .shareListBtn button + button{margin-left: 10px;}
-.shareListBtn button.shareUrl{background-image: url(../images/icon_share_url.png);}
-.shareListBtn button.shareKakao{background-image: url(../images/icon_share_kakao.png);}
-.shareListBtn button.shareFacebook{background-image: url(../images/icon_share_facebook.png);}
-.shareListBtn button.shareTwitter{background-image: url(../images/icon_share_twitter.png);}
+.shareListBtn button.shareUrl{background-image: url(../images/icon_share_url.svg);}
+.shareListBtn button.shareKakao{background-image: url(../images/icon_share_kakao.svg);}
+.shareListBtn button.shareFacebook{background-image: url(../images/icon_share_facebook.svg);}
+.shareListBtn button.shareTwitter{background-image: url(../images/icon_share_twitter.svg);}
 .bottomBtnGroup {display: flex;justify-content: space-between;align-items: flex-end;flex-direction: row;margin-top: 140px;}
 .shareCurrent{max-width: 500px;}
 .shareCurrent .currentNum{display: flex;justify-content: flex-start;flex-direction: row;}
@@ -386,7 +386,6 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .shareCurrent .currentNum li p.value{font-size: 16px;}
     .eventBubble{right: -50px;width: 197px;height: 99px;background-image: url(../images/bg_bubble_m.svg);}
     .eventBubble p{font-size: 18px;}
-    .eventBubble p img{width: 74px;height: 45px;}
     .shareCurrent .dotList{margin-top: 35px;}
     .shareCurrent .dotList li{font-size: 16px;}
 

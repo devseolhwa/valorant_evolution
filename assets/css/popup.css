@@ -10,7 +10,7 @@
 .modarPopup.show .modarCenter{-webkit-animation: slideInUp 0.5s 50ms;-moz-animation: slideInUp 0.5s 50ms;-ms-animation: slideInUp 0.5s 50ms;-o-animation: slideInUp 0.5s 50ms;animation: slideInUp 0.5s 50ms;-webkit-animation-fill-mode: backwards;animation-fill-mode: backwards;}
 .jsModarClose{display: block;width: 100%;height: 72px;background: #CDC9C2;font-size: 36px;color: #A09D96;font-family: "Black Han Sans", sans-serif;cursor: inherit;}
 .jsModarClose.on{background: #FF4655;color: #ECE8E1;cursor: pointer;}
-.btnCloseModar{position: absolute;right: 40px;top: 40px;width: 24px;height: 24px;background-image: url(../images/icon_popup_close.png);background-position: center;background-repeat: no-repeat;overflow: hidden;text-indent: -9999px;white-space: nowrap;}
+.btnCloseModar{position: absolute;right: 40px;top: 40px;width: 24px;height: 24px;background-image: url(../images/icon_popup_close.svg);background-position: center;background-repeat: no-repeat;overflow: hidden;text-indent: -9999px;white-space: nowrap;}
 
 .popupTitleXs{margin-top: 34px;font-size: 28px;color: #0F1923;font-weight: 600;line-height: 150%;word-break: keep-all;}
 .popupTitleSm{padding-right: 30px;font-size: 24px;color: #0F1923;font-weight: 600;line-height: 160%;word-break: keep-all;}
@@ -34,15 +34,15 @@
 .shareBtnGroup button:before{content: "";position: absolute;top: -1px;left: 3px;width: 1px;height: 8px;background-color: #FF4655;transform: rotate(315deg);}
 .shareBtnGroup button:after{content: "";position: absolute;bottom: -1px;right: 3px;width: 1px;height: 8px;background-color: #FF4655;transform: rotate(315deg);}
 .shareBtnGroup button + button{margin-left: 20px;}
-.shareBtnGroup button.shareUrl{background-image: url(../images/icon_share_url.png);}
-.shareBtnGroup button.shareKakao{background-image: url(../images/icon_share_kakao.png);}
-.shareBtnGroup button.shareFacebook{background-image: url(../images/icon_share_facebook.png);}
-.shareBtnGroup button.shareTwitter{background-image: url(../images/icon_share_twitter.png);}
+.shareBtnGroup button.shareUrl{background-image: url(../images/icon_share_url.svg);}
+.shareBtnGroup button.shareKakao{background-image: url(../images/icon_share_kakao.svg);}
+.shareBtnGroup button.shareFacebook{background-image: url(../images/icon_share_facebook.svg);}
+.shareBtnGroup button.shareTwitter{background-image: url(../images/icon_share_twitter.svg);}
 .shareBtnGroup button:hover{background-color: #FF4655;}
-.shareBtnGroup button.shareUrl:hover{background-image: url(../images/icon_share_url_on.png);}
-.shareBtnGroup button.shareKakao:hover{background-image: url(../images/icon_share_kakao_on.png);}
-.shareBtnGroup button.shareFacebook:hover{background-image: url(../images/icon_share_facebook_on.png);}
-.shareBtnGroup button.shareTwitter:hover{background-image: url(../images/icon_share_twitter_on.png);}
+.shareBtnGroup button.shareUrl:hover{background-image: url(../images/icon_share_url_on.svg);}
+.shareBtnGroup button.shareKakao:hover{background-image: url(../images/icon_share_kakao_on.svg);}
+.shareBtnGroup button.shareFacebook:hover{background-image: url(../images/icon_share_facebook_on.svg);}
+.shareBtnGroup button.shareTwitter:hover{background-image: url(../images/icon_share_twitter_on.svg);}
 
 #toast{position: fixed;top: 110px;left: 0;right:0;display: flex;align-items: center;justify-content: center;max-width: 0px;height: 70px;margin: 0 auto;visibility: hidden;background: rgba(255, 255, 255, 0.15);box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);backdrop-filter: blur(7.5px);-webkit-backdrop-filter: blur(7.5px);text-align: center;z-index: 100000;}
 #toast #desc{font-size: 30px;color: #ECE8E1;font-weight: 600;line-height: 100%;text-align: center;overflow: hidden;white-space: nowrap;}
