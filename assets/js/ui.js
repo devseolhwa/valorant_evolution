@@ -269,7 +269,7 @@ $(document).ready(function(){
             $(".productSection").addClass("start");
             cardSlide.start(); // pc용 카드슬라이드 시작
             setTimeout(function(){
-                //$("#btnRemove").trigger("click");
+                $("#btnRemove").trigger("click");
             }, 2000);
             isVisible2 = true;
             return true;
