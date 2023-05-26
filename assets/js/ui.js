@@ -3,6 +3,7 @@ $(document).ready(function(){
     setTimeout(function(){
         textEffect();
     }, 800);
+
     // leftmenu
     $("#btnMenuOpen").click(function(){     
         $("#btnMenuOpen").addClass("open");
@@ -29,7 +30,7 @@ $(document).ready(function(){
 
             ScrollTrigger.create({
                 trigger: $this,
-                start: start_pos, 
+                start: start_pos,
                 end: end_pos,
                 onEnter: function(){
                     $this.addClass("active");
@@ -239,7 +240,7 @@ $(document).ready(function(){
         });
     }
 
-    // 업데이트 내용 진입시 .start 추가
+    // 진입시 .start 추가
     var isVisible = false;
 
     $(window).on("scroll",function() {
@@ -266,9 +267,10 @@ $(document).ready(function(){
     $(window).on("scroll",function() {
         if (checkVisible2($(".productSection"))&&!isVisible2){
             $(".productSection").addClass("start");
+            cardSlide.start(); // pc용 카드슬라이드 시작
             setTimeout(function(){
                 $("#btnRemove").trigger("click");
-            }, 3000);
+            }, 2000);
             isVisible2 = true;
             return true;
         }
@@ -320,7 +322,7 @@ $(document).ready(function() {
         cardSlide.nextClick();
     });
 
-    cardSlide.start();
+    //cardSlide.start();
 });
 
 let cardSlide = {

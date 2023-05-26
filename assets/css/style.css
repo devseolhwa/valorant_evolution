@@ -161,69 +161,33 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 .productText .text{margin-top: 20px;font-size: 20px;color: #CDC9C2;font-weight: 400;line-height: 160%;letter-spacing: 0.02em;word-break: keep-all;}
 .Text .title h3{display: block;font-size: 75px;color: #ECE8E1;font-weight: 400;line-height: 105%;letter-spacing: -0.01em;word-break: keep-all;font-family: "Black Han Sans";}
 .productSlide{position: relative;z-index: 9;width: 45%;display: flex;justify-content: flex-end;}
-.productSlideMWrap{display: none;}
+.productSlideM, .productSlideMControl {display: none;}
 .productSlidePc .flip-card-container {position: relative;width: 529px;height: 530px;margin: 0 25px 47px;}
-.productSlidePc .flip-card {
-    position:absolute;
-    background-color: transparent;
-    width: 370px;
-    height: 530px;
-    left: 0px;
-    perspective: 1000px;
-    transition: all ease 0.5s;
-}
-.productSlidePc .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.3s;
-    transform-style: preserve-3d;
-}
-
-.productSlidePc .flip-card.on .flip-card-inner {
-    transform: rotateY(180deg);
-}
-.productSlidePc .flip-card-front, .productSlidePc .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    filter: drop-shadow(15px 4px 20px rgba(0, 0, 0, 0.9));
-}
-.productSlidePc .flip-card-front {
-    background-color: transparent;
-    color: black;
-}
-.productSlidePc .flip-card-back {
-    background-color: transparent;
-    transform: rotateY(180deg);
-}
+.productSlidePc .flip-card {position: absolute;left: 0px;background-color: transparent;width: 370px;height: 530px;perspective: 1000px;transition: all ease 0.5s;}
+.productSlidePc .flip-card-inner {position: relative;width: 100%;height: 100%;text-align: center;transition: transform 0.3s;transform-style: preserve-3d;}
+.productSlidePc .flip-card.on .flip-card-inner {transform: rotateY(180deg);}
+.productSlidePc .flip-card-front, .productSlidePc .flip-card-back {position: absolute;width: 100%;height: 100%;-webkit-backface-visibility: hidden;backface-visibility: hidden;filter: drop-shadow(15px 4px 20px rgba(0, 0, 0, 0.9));}
+.productSlidePc .flip-card-front {background-color: transparent;}
+.productSlidePc .flip-card-back {background-color: transparent;transform: rotateY(180deg);}
 .productSlideControl{display: flex;margin: 0 40px;align-items: flex-start;justify-content: space-between;}
-.productSlideControl p{display: flex;align-items: center;
-    justify-content: flex-start;margin-top: 10px;font-size: 30px;color: #ECE8E1;font-weight: 400;letter-spacing: 0.07em;font-family: "DINNextLTPro-Regular";}
+.productSlideControl p{display: flex;align-items: center;justify-content: flex-start;margin-top: 10px;font-size: 30px;color: #ECE8E1;font-weight: 400;letter-spacing: 0.07em;font-family: "DINNextLTPro-Regular";}
 .productSlideControl p span{font-family: "DINNextLTPro-Regular";}
 .productSlideArrows{display: flex;}
 .productSlideArrows button + button{margin-left: 15px;}
 .productSlideArrows #btnPrev, .productSlideArrows #btnNext{width: 80px;height: 80px;background-color: #FF4655;background-image: url(../images/icon_product_arrow.svg);background-position: center center;background-repeat: no-repeat;backdrop-filter: blur(3px);-webkit-backdrop-filter: blur(3px);overflow: hidden;text-indent: -9999px;white-space: nowrap;}
 .productSlideArrows #btnNext{transform: rotate(180deg);}
 .productSlideBubble{position: absolute;top: 76px;left: -66px;display: flex;align-items: center;justify-content: flex-start;width: 316px;height: auto;padding: 20px 10px 20px 27px;background: rgba(255, 255, 255, 0.1);border: 1px solid #ECE8E1;backdrop-filter: blur(10px);-webkit-backdrop-filter: blur(10px);filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.55));box-sizing: border-box;font-weight: 600;font-size: 22px;line-height: 140%;color: #ECE8E1;text-align: left;z-index: 1;}
-
 .btnI{display: flex;align-items: center;justify-content: center;width: 30px;height: 30px;margin-left: 20px;margin-top: -3px;background-color: #FF4655;background-position: center;background-repeat: no-repeat;border-radius: 32px;}
-
 
 .updateSection{position: relative;overflow: hidden;}
 .updateSection .updateInner{position: relative;width: 100%;padding: 157px 0 217px;margin: 0 auto;box-sizing: border-box;}
 .updateText{position: relative;margin-bottom: 94px;text-align: center;box-sizing: border-box;z-index: 9;}
 .updateText .title{font-size: 110px;font-size: min(5.5vw, 110px); color: #ECE8E1;font-weight: 400;line-height: 100%;word-break: keep-all;text-align: center;text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);font-family: 'Black Han Sans';}
 .updateText .text{margin-top: 20px;font-size: 20px;color: #ECE8E1;font-weight: 400;line-height: 160%;word-break: keep-all;text-align: center;letter-spacing: 0.02em;text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);}
-
 .BgSlideImg{position: absolute;top: 0;bottom: 0;left: 0;right: 0;width: 100%;height: 100%;overflow: hidden;}
 .BgSlideImg p{position: relative;height: 100%;transition: .3s;-webkit-transition: .3s;}
 .BgSlideImg p:before{content: "";position: absolute;width: 100%;height: 100%; background: rgba(0, 0, 0, 0.6);backdrop-filter: blur(2.5px);-webkit-backdrop-filter: blur(2.5px);transition: .3s;-webkit-transition: .3s;}
 .BgSlideImg p img, .BgSlideImg p video{-o-object-fit: cover;object-fit: cover;-o-object-position: center;object-position: center;-o-object-position: center;object-position: center;width: 100%;height: 100%;transition: .3s;-webkit-transition: .3s;}
-
 .updateTextSlide{position: absolute;left: calc(50% - 600px);min-width: auto;width: 360px;box-sizing: border-box;}
 .updateTextSlide .textItem{position: relative;padding-top: 60px;margin-top: 12px;}
 .updateTextSlide .textItem:before{content: "";display: block;position: absolute;top: 0;left: 0;width: 160px;height: 15px;background-color: #FF4655;transform-origin: left center;transition: transform 300ms ease-in-out;}
@@ -239,7 +203,6 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 .updateThumbSlide .slick-current .Thumb:after{opacity: 1;}
 .updateThumbSlide .Thumb img{width: 100%;height: 100%;object-fit: cover;}
 .updateThumbSlide .Thumb video{width: 100%;height: 100%;object-fit: cover;}
-
 .updateArrow{position: absolute;left: calc(50% - 660px);bottom: 197px;font-size: 0;z-index: 10;}
 .updateArrow button{width: 80px;height: 80px;background-color: rgba(236, 232, 225, 0.1);background-image: url(../images/icon_update_arrow.svg);background-position: center center;background-repeat: no-repeat;backdrop-filter: blur(3px);-webkit-backdrop-filter: blur(3px);border: 1px solid #ECE8E1;overflow: hidden;text-indent: -9999px;white-space: nowrap;}
 .updateArrow .next{transform: rotate(180deg);margin-left: 10px;}
@@ -250,7 +213,6 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 .errorPage .errorText{margin-bottom: 60px;}
 .errorPage .errorText .textValorant{text-align: center;}
 .errorPage .errorText p{position: relative;margin-top: 60px;font-size: 28px;color: #ECE8E1;font-weight: 600;line-height: 170%;word-break: keep-all;text-align: center;}
-
 
 @media screen and (max-width: 1439px){
     .tabletShow {display: block !important;}
@@ -295,7 +257,6 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .productSlidePc .flip-card-container{width: 430px;height: 430px;}
     .productSlidePc .flip-card{width: 300px;height: 430px;}
     .productSlideControl p{font-size: 20px;}
-    .btnI img{vertical-align: -1px;}
     .productSlideArrows #btnPrev, .productSlideArrows #btnNext{width: 50px;height: 50px;background-size: 15px auto;}
     .productSlideBubble{left: -20px;}
     .updateTextSlide{left: 5%;}
@@ -339,7 +300,7 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .productText .text{font-size: 18px;}
     .productSlide{flex-direction: column;justify-content: center;width: 100%;margin-top: 45px;}
     .productSlidePc{display: none;}
-    .productSlideMWrap{display: block;}
+    .productSlideM {display: block;}
     .productSlideM .slick-slide{margin: 0 8px;}
     .productSlideM .flip-card-inner {position: relative;width: 100%;height: 100%;text-align: center;transition: transform 0.5s;transform-style: preserve-3d;}
     .productSlideM .slick-current .flip-card .flip-card-inner {transform: rotateY(180deg);}
@@ -351,7 +312,6 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .productSlideMControl .number, .productSlideMControl .number p, .productSlideMControl .number span{display: inline-block;font-size: 16px;color: #ECE8E1;font-weight: 400;line-height: 100%;text-align: center;letter-spacing: 0.07em;font-family: "DINNextLTPro-Regular";}
     .productSlideBubble{top: 41px;left: 55px;display: flex;width: 201px;height: auto;padding: 13px 18px;transform: rotateY(180deg);font-size: 14px;}
     .btnI{margin-left: 12px;width: 18px;height: 18px;}
-    .btnI img{vertical-align: 6px;}
 }
 @media screen and (max-width: 767px){
     .mobileShow {display: block !important;}
@@ -450,13 +410,11 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .updateArrow{position: inherit;left: auto;bottom: auto;margin-top: 35px;padding: 0 20px;text-align: right;}
     .updateArrow button{width: 60px;height: 60px;background-size: 34px 31px;}
 
-
     .errorPage .errorText{margin-bottom: 40px;}
     .errorPage .errorText .textValorant{width: 141px;margin: 0 auto;}
     .errorPage .errorText p{margin-top: 40px;font-size: 16px;}
     
 }
-
 
 @-webkit-keyframes fillLine {
     0% {transform: scaleX(0%);}
@@ -490,7 +448,6 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
         transform: translate(0, 3%);
     }
 }
-
 @-moz-keyframes bubbleBounce {
     0%, 100% {
         -webkit-transform: translate(0, -3%);
@@ -502,7 +459,6 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
         transform: translate(0, 3%);
     }
 }
-
 @-ms-keyframes bubbleBounce {
     0%, 100% {
         -webkit-transform: translate(0, -3%);
@@ -514,7 +470,6 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
         transform: translate(0, 3%);
     }
 }
-
 @-o-keyframes bubbleBounce {
     0%, 100% {
         -webkit-transform: translate(0, -3%);
@@ -526,7 +481,6 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
         transform: translate(0, 3%);
     }
 }
-
 @keyframes bubbleBounce {
     0%, 100% {
         -webkit-transform: translate(0, -3%);
