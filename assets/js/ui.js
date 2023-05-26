@@ -132,6 +132,34 @@ $(document).ready(function(){
         return true;
     }
 
+    // 모바일 상품카드
+    let productSlideCheck = $(".productSlide");
+    if (productSlideCheck.length) {
+        $(".productSlideM").slick({
+            slidesToShow : 1,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 2000,
+            speed: 700,
+            centerMode: true,
+            centerPadding : "100px", 
+            variableWidth: true,
+            infinite: true,
+            pauseOnHover: false,
+            swipeToSlide: true,
+            draggable: true,
+            arrows: false,
+            dots: true,
+            customPaging: function (slick, index) {
+                let total = slick.slideCount;
+                $(".productSlideMControl .number span").text(total < 10 ? "0" + total : total);
+            }
+        }).on("beforeChange", function (event, slick, currentSlide, nextSlide) {
+            let i = (nextSlide ? nextSlide : 0) + 1;
+            $(".productSlideMControl .number p").text(i < 10 ? "0" + i : i);
+        });
+    }
+
     // updateSection bg changes
     function bgChange() {
         $(".updateThumbSlide").each(function () {
@@ -170,7 +198,7 @@ $(document).ready(function(){
             autoplaySpeed: 3000,
             speed: 700,
             dots: false,
-            infinite: false,
+            infinite: true,
             pauseOnHover: false,
             draggable: true,
             arrows: true,
@@ -200,7 +228,7 @@ $(document).ready(function(){
             asNavFor: ".updateThumbSlide",
             adaptiveHeight: true,
             dots: false,
-            infinite: false,
+            infinite: true,
             pauseOnHover: false,
             arrows: false
         });
@@ -210,10 +238,18 @@ $(document).ready(function(){
     var isVisible = false;
 
     $(window).on("scroll",function() {
-        if (checkVisible($(".updateSection"))&&!isVisible) {
+        if (checkVisible($(".updateSection"))&&!isVisible){
             $(".updateSection").addClass("start");
             $(".updateThumbSlide, .updateTextSlide").slick("slickPlay");
             isVisible = true;
+            return true;
+        } else if(checkVisible($(".productSection"))&&!isVisible){
+            $(".productSection").addClass("start");
+            $(".productSlideM").slick("slickPlay");
+            setTimeout(function(){
+                //$('.productSlideM').slick('slickRemove', $('.slick-slide').index(this) - 1);
+            }, 3000);
+            return true;
         }
     });
     function checkVisible( elm, eval ) {
@@ -245,3 +281,145 @@ function codeCopy() {
 
     alert("초대코드가 복사 되었습니다.");
 }
+
+
+$(document).ready(function() {
+
+    cardSlide.init('.flip-card-container');
+
+    $(this).off('click', '#btnPrev').on('click', '#btnPrev', function(e) {
+        e.preventDefault();
+
+        cardSlide.prevClick();
+    });
+
+    $(this).off('click', '#btnNext').on('click', '#btnNext', function(e) {
+        e.preventDefault();
+
+        cardSlide.nextClick();
+    });
+
+    cardSlide.start();
+});
+
+let cardSlide = {
+    _is_start : false,
+    _container : "",
+    _items : "",
+    _current_index : 0,
+    _limit_index : 0,
+    _interval_id : null,
+    init : function(container) {
+        this._container = $(container);
+        this._items = this._container.find('li');
+        this._current_index = 1;
+        this._limit_index = this._items.length - 1;
+        this._items.each(function(index, item) {
+            switch (index) {
+                case 0 : $(item).css({'transform':'translate3d(0%, 0px, 0px)', 'z-index':(index * -1), 'opacity':'1'}); break;
+                case 1 : $(item).css({'transform':'translate3d(18%, 0px, 0px)', 'z-index':(index * -1), 'opacity':'1'}); break;
+                case 2 : $(item).css({'transform':'translate3d(29%, 0px, 0px)', 'z-index':(index * -1), 'opacity':'1'}); break;
+                case 3 : $(item).css({'transform':'translate3d(37%, 0px, 0px)', 'z-index':(index * -1), 'opacity':'1'}); break;
+                case 4 : $(item).css({'transform':'translate3d(43%, 0px, 0px)', 'z-index':(index * -1), 'opacity':'1'}); break;
+                default : $(item).css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':(index * -1), 'opacity':'0'}); break;
+            }
+        });
+
+        this.showCount();
+    },
+    showCount : function() {
+        var _cur_idx = ( this._current_index < 10 ) ? "0" + this._current_index : this._current_index;
+        var _limit_idx = ( this._limit_index < 10 ) ? "0" + this._limit_index : this._limit_index;
+
+        $('#currntCardNumber').html(_cur_idx);
+        $('#maxCardNumber').html(_limit_idx);
+    },
+    next : function() {
+        if ( this._is_start ) {
+            var tmp = this._items.length - 1;
+            this._items.each(function(index, item) {
+                var _zidx = Math.abs($(item).css('z-index'));
+                switch (_zidx) {
+                    case 0 :
+                        $(item).css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':(tmp * -1), 'opacity':'0'});
+                        $(item).removeClass('on');
+                        break;
+                    case 1 : $(item).css({'transform':'translate3d(0%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); $(item).addClass('on'); break;
+                    case 2 : $(item).css({'transform':'translate3d(18%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
+                    case 3 : $(item).css({'transform':'translate3d(29%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
+                    case 4 : $(item).css({'transform':'translate3d(37%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
+                    case 5 : $(item).css({'transform':'translate3d(43%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
+                    default : $(item).css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'0'}); break;
+                }
+            });
+
+            if ( this._current_index == this._limit_index ) {
+                this._current_index = 1;
+            } else {
+                this._current_index++;
+            }
+            this.showCount();
+        } else {
+            this._items.each(function(index, item) {
+                var _zidx = Math.abs($(item).css('z-index'));
+                switch (_zidx) {
+                    case 0 :
+                        $(item).css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':(tmp * -1), 'opacity':'0'}).remove();
+                        break;
+                    case 1 : $(item).css({'transform':'translate3d(0%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); $(item).addClass('on'); break;
+                    case 2 : $(item).css({'transform':'translate3d(18%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
+                    case 3 : $(item).css({'transform':'translate3d(29%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
+                    case 4 : $(item).css({'transform':'translate3d(37%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
+                    case 5 : $(item).css({'transform':'translate3d(43%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
+                    default : $(item).css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'0'}); break;
+                }
+            });
+            this._items = this._container.find('li');
+            this._is_start = true;
+        }
+    },
+    nextClick : function() {
+        clearInterval(this._interval_id);
+        this.next();
+    },
+    prev : function() {
+        var tmp = this._items.length - 1;
+        this._items.each(function(index, item) {
+            var _zidx = Math.abs($(item).css('z-index'));
+            switch (_zidx) {
+                case tmp :
+                    $(item).addClass('on').css({'transform':'translate3d(0%, 0px, 0px)', 'z-index':'0', 'opacity':'1'});
+                    break;
+                case 0 : $(item).removeClass('on').css({'transform':'translate3d(18%, 0px, 0px)', 'z-index':((_zidx + 1) * -1), 'opacity':'1'}); break;
+                case 1 : $(item).css({'transform':'translate3d(29%, 0px, 0px)', 'z-index':((_zidx + 1) * -1), 'opacity':'1'}); break;
+                case 2 : $(item).css({'transform':'translate3d(37%, 0px, 0px)', 'z-index':((_zidx + 1) * -1), 'opacity':'1'}); break;
+                case 3 : $(item).css({'transform':'translate3d(43%, 0px, 0px)', 'z-index':((_zidx + 1) * -1), 'opacity':'1'}); break;
+                default : $(item).css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':((_zidx + 1) * -1), 'opacity':'0'}); break;
+            }
+        });
+
+        if ( this._current_index == 1 ) {
+            this._current_index = this._limit_index;
+        } else {
+            this._current_index--;
+        }
+        this.showCount();
+    },
+    prevClick : function() {
+        clearInterval(this._interval_id);
+        this.prev();
+    },
+    start : function() {
+        clearInterval(this._interval_id);
+
+        setTimeout(function() {
+            cardSlide.play();
+        }, 2000);
+    },
+    play : function() {
+        this._interval_id = setInterval(function() {
+            cardSlide.next();
+        }, 2000);
+        console.log(this._interval_id);
+    }
+};
