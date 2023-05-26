@@ -154,20 +154,15 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 .productSection .productInner:before{content: "";position: absolute;top: 0;left: 0;display: block;height: 100%;border-right: 1px solid rgba(255, 70, 85, 0.6);}
 .productSection .productInner:after{content: "";position: absolute;top: 0;right: 0;display: block;height: 100%;border-right: 1px solid rgba(255, 70, 85, 0.6);}
 .productText .date{display: inline-block;padding: 10px 17px;background: #FF4655;font-size: 55px;color: #090909;font-weight: 400;line-height: 80%;letter-spacing: 0.18em;font-family: "Tungsten-Bold";    text-align: center;}
+.productText{padding-bottom: 100px;width: 55%;}
 .productText .title{display: block;margin-top: 27px;}
 .productText .title h3{display: block;font-size: 75px;color: #ECE8E1;font-weight: 400;line-height: 105%;letter-spacing: -0.01em;word-break: keep-all;font-family: "Black Han Sans";}
 .productText .title span{color: #FF4655;font-family: "Black Han Sans";}
 .productText .text{margin-top: 20px;font-size: 20px;color: #CDC9C2;font-weight: 400;line-height: 160%;letter-spacing: 0.02em;word-break: keep-all;}
 .Text .title h3{display: block;font-size: 75px;color: #ECE8E1;font-weight: 400;line-height: 105%;letter-spacing: -0.01em;word-break: keep-all;font-family: "Black Han Sans";}
-.productSlide{position: relative;z-index: 9;}
+.productSlide{position: relative;z-index: 9;width: 45%;display: flex;justify-content: flex-end;}
 .productSlideMWrap{display: none;}
-
-.productSlidePc .flip-card-container {
-    position:relative;
-    width:530px;
-    height:532px;
-    margin:10px 30px;
-}
+.productSlidePc .flip-card-container {position: relative;width: 529px;height: 530px;margin: 0 25px 47px;}
 .productSlidePc .flip-card {
     position:absolute;
     background-color: transparent;
@@ -185,6 +180,7 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     transition: transform 0.3s;
     transform-style: preserve-3d;
 }
+
 .productSlidePc .flip-card.on .flip-card-inner {
     transform: rotateY(180deg);
 }
@@ -194,6 +190,7 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    filter: drop-shadow(15px 4px 20px rgba(0, 0, 0, 0.9));
 }
 .productSlidePc .flip-card-front {
     background-color: transparent;
@@ -203,10 +200,18 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     background-color: transparent;
     transform: rotateY(180deg);
 }
-.productSlideBubble{position: absolute;top: 76px;left: -66px;display: flex;width: 316px;height: 154px;padding-bottom: 25px;background-image: url(../images/bg_productSlide_bubble.svg);background-size: 100%;background-repeat: no-repeat;box-sizing: border-box;align-items: center;justify-content: center;z-index: 1;font-weight: 600;font-size: 22px;line-height: 140%;color: #ECE8E1;text-align: left;z-index: 1;}
-.productSlideBubble:before{content: "";position: absolute;top: 2px;left: 2px;display: flex;width: 312px;height: 131px;background: rgba(255, 255, 255, 0.1);backdrop-filter: blur(10px);z-index: -1;}
-.btnI{margin-left: 20px;width: 30px;height: 30px;background-color: #FF4655;background-position: center;background-repeat: no-repeat;border-radius: 32px;}
-.btnI img{vertical-align: -2px;}
+.productSlideControl{display: flex;margin: 0 40px;align-items: flex-start;justify-content: space-between;}
+.productSlideControl p{display: flex;align-items: center;
+    justify-content: flex-start;margin-top: 10px;font-size: 30px;color: #ECE8E1;font-weight: 400;letter-spacing: 0.07em;font-family: "DINNextLTPro-Regular";}
+.productSlideControl p span{font-family: "DINNextLTPro-Regular";}
+.productSlideArrows{display: flex;}
+.productSlideArrows button + button{margin-left: 15px;}
+.productSlideArrows #btnPrev, .productSlideArrows #btnNext{width: 80px;height: 80px;background-color: #FF4655;background-image: url(../images/icon_product_arrow.svg);background-position: center center;background-repeat: no-repeat;backdrop-filter: blur(3px);-webkit-backdrop-filter: blur(3px);overflow: hidden;text-indent: -9999px;white-space: nowrap;}
+.productSlideArrows #btnNext{transform: rotate(180deg);}
+.productSlideBubble{position: absolute;top: 76px;left: -66px;display: flex;align-items: center;justify-content: flex-start;width: 316px;height: auto;padding: 20px 10px 20px 27px;background: rgba(255, 255, 255, 0.1);border: 1px solid #ECE8E1;backdrop-filter: blur(10px);-webkit-backdrop-filter: blur(10px);filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.55));box-sizing: border-box;font-weight: 600;font-size: 22px;line-height: 140%;color: #ECE8E1;text-align: left;z-index: 1;}
+
+.btnI{display: flex;align-items: center;justify-content: center;width: 30px;height: 30px;margin-left: 20px;margin-top: -3px;background-color: #FF4655;background-position: center;background-repeat: no-repeat;border-radius: 32px;}
+
 
 .updateSection{position: relative;overflow: hidden;}
 .updateSection .updateInner{position: relative;width: 100%;padding: 157px 0 217px;margin: 0 auto;box-sizing: border-box;}
@@ -266,6 +271,7 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .visualSection .visualInner .visualText + .btnLine{margin-top: 40px;}
     .reservationSection .reservationInner{max-width: 80%;}
     .inputList{width: 100%;}
+    
     .shareSection .shareInner{max-width: 80%;padding: 105px 3% 50px;}
     .shareCode .titleMd{font-size: 58px;}
     .shareCode, .shareCurrent{width: 45%;}
@@ -280,7 +286,18 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .shareCurrent .dotList li{font-size: 18px;}
     .eventBubble{right: 0;width: 360px;height: 73px;padding-top: 16px;margin: 0 auto;}
     .eventBubble p{font-size: 17px;}
-    .productSection .productInner{max-width: 80%;}
+    .productSection .productInner{max-width: 80%;height: auto;}
+    .productText{width: calc(100% - 480px);padding-bottom: 50px;}
+    .productText .date{font-size: min(3vw, 55px);}
+    .productText .title h3{font-size: min(5vw, 75px);}
+    .productText .text{font-size: min(1.5vw, 20px);}
+    .productSlide{    width: 480px;}
+    .productSlidePc .flip-card-container{width: 430px;height: 430px;}
+    .productSlidePc .flip-card{width: 300px;height: 430px;}
+    .productSlideControl p{font-size: 20px;}
+    .btnI img{vertical-align: -1px;}
+    .productSlideArrows #btnPrev, .productSlideArrows #btnNext{width: 50px;height: 50px;background-size: 15px auto;}
+    .productSlideBubble{left: -20px;}
     .updateTextSlide{left: 5%;}
     .updateTextSlide .textItem{padding-top: 30px;margin-top: 0;}
     .updateTextSlide .textItem:before{width: 120px;height: 5px;}
@@ -316,12 +333,11 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .productSection .productInner{flex-direction: column;justify-content: center;max-width: 100%;height: auto;padding: 85px 0 95px;}
     .productSection .productInner:before{left: 5%;}
     .productSection .productInner:after{right: 5%;}
-    .productText {text-align: center;}
+    .productText {width: 100%;text-align: center;padding: 0 5%;box-sizing: border-box;}
     .productText .date{font-size: 40px;}
     .productText .title h3{font-size: 50px;}
     .productText .text{font-size: 18px;}
-
-    .productSlide{width: 100%;margin-top: 45px;}
+    .productSlide{flex-direction: column;justify-content: center;width: 100%;margin-top: 45px;}
     .productSlidePc{display: none;}
     .productSlideMWrap{display: block;}
     .productSlideM .slick-slide{margin: 0 8px;}
@@ -329,12 +345,11 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .productSlideM .slick-current .flip-card .flip-card-inner {transform: rotateY(180deg);}
     .productSlideM .flip-card-back {position: absolute;top: 0;width: 100%;height: 100%;-webkit-backface-visibility: hidden;backface-visibility: hidden;background-color: transparent;transform: rotateY(180deg);}
     .productSlideM .flip-card-front {background-color: transparent;}
-    .productSlideM .flip-card-inner img{max-width: 300px;margin: 0 auto;} 
-.slick-dots{display: none !important;}
+    .productSlideM .flip-card-inner img{max-width: 223px;margin: 0 auto;}
+    .productSlideM .slick-dots{display: none !important;}
     .productSlideMControl{display: flex;align-items: center;justify-content: center;}
-    .productSlideMControl .number{font-size: 16px;color: #ECE8E1;font-weight: 400;line-height: 80%;text-align: center;letter-spacing: 0.07em;}
-    .productSlideMControl .number p {display: inline-block;}
-    .productSlideBubble{top: 63px;left: 88px;display: flex;width: 201px;height: 100px;transform: rotateY(180deg);}
+    .productSlideMControl .number, .productSlideMControl .number p, .productSlideMControl .number span{display: inline-block;font-size: 16px;color: #ECE8E1;font-weight: 400;line-height: 100%;text-align: center;letter-spacing: 0.07em;font-family: "DINNextLTPro-Regular";}
+    .productSlideBubble{top: 41px;left: 55px;display: flex;width: 201px;height: auto;padding: 13px 18px;transform: rotateY(180deg);font-size: 14px;}
     .btnI{margin-left: 12px;width: 18px;height: 18px;}
     .btnI img{vertical-align: 6px;}
 }

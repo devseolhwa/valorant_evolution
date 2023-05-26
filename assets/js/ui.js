@@ -136,9 +136,9 @@ $(document).ready(function(){
     let productSlideCheck = $(".productSlide");
     if (productSlideCheck.length) {
         $(".productSlideM").slick({
-            slidesToShow : 1,
+            slidesToShow : 3,
             slidesToScroll: 1,
-            autoplay: false,
+            //autoplay: false,
             autoplaySpeed: 2000,
             speed: 700,
             centerMode: true,
@@ -150,13 +150,18 @@ $(document).ready(function(){
             draggable: true,
             arrows: false,
             dots: true,
-            customPaging: function (slick, index) {
-                let total = slick.slideCount;
-                $(".productSlideMControl .number span").text(total < 10 ? "0" + total : total);
-            }
-        }).on("beforeChange", function (event, slick, currentSlide, nextSlide) {
+        }).on("afterChange", function (event, slick, currentSlide) {
+            let total = slick.slideCount;
+            $(".productSlideMControl .number span").text(total < 10 ? "0" + total : total);
+        }).on("beforeChange", function(event, slick, currentSlide, nextSlide){
             let i = (nextSlide ? nextSlide : 0) + 1;
-            $(".productSlideMControl .number p").text(i < 10 ? "0" + i : i);
+            $(".productSlideMControl .number p").text(i < 10 ? "0" + i : i);  
+        });
+
+        $(this).off("click", "#btnRemove").on("click", "#btnRemove", function(e) {
+            e.preventDefault();
+            $(".productSlideM").slick("slickRemove", 0);
+            $(".productSlideM").slick("slickPlay");
         });
     }
 
@@ -243,13 +248,6 @@ $(document).ready(function(){
             $(".updateThumbSlide, .updateTextSlide").slick("slickPlay");
             isVisible = true;
             return true;
-        } else if(checkVisible($(".productSection"))&&!isVisible){
-            $(".productSection").addClass("start");
-            $(".productSlideM").slick("slickPlay");
-            setTimeout(function(){
-                //$('.productSlideM').slick('slickRemove', $('.slick-slide').index(this) - 1);
-            }, 3000);
-            return true;
         }
     });
     function checkVisible( elm, eval ) {
@@ -261,6 +259,29 @@ $(document).ready(function(){
         
         if (eval == "object visible") return ((y < (viewportHeight + wscrolltop)) && (y > (wscrolltop - elementHeight)));
         if (eval == "above") return ((y < (viewportHeight + wscrolltop)));
+    }
+
+    var isVisible2 = false;
+
+    $(window).on("scroll",function() {
+        if (checkVisible2($(".productSection"))&&!isVisible2){
+            $(".productSection").addClass("start");
+            setTimeout(function(){
+                $("#btnRemove").trigger("click");
+            }, 3000);
+            isVisible2 = true;
+            return true;
+        }
+    });
+    function checkVisible2( elm_, eval_ ) {
+        eval_ = eval_ || "object visible";
+        var viewportHeight_ = $(window).height(),
+            wscrolltop_ = $(window).scrollTop(),
+            y_ = $(elm_).offset().top,
+            elementHeight_ = $(elm_).height();   
+        
+        if (eval_ == "object visible") return ((y_ < (viewportHeight_ + wscrolltop_)) && (y_ > (wscrolltop_ - elementHeight_)));
+        if (eval_ == "above") return ((y_ < (viewportHeight_ + wscrolltop_)));
     }
 });
 function urlCopy() {
@@ -420,6 +441,6 @@ let cardSlide = {
         this._interval_id = setInterval(function() {
             cardSlide.next();
         }, 2000);
-        console.log(this._interval_id);
+        //console.log(this._interval_id);
     }
 };

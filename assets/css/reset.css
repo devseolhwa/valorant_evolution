@@ -81,12 +81,13 @@
          url("fonts/black_han_sans.woff") format("woff");
     font-display: swap;
 }
-@font-face {
+/* @font-face {
     font-family: "Tungsten-Bold";
     src: url("fonts/Tungsten-Bold.woff2") format("woff2"),
          url("fonts/Tungsten-Bold.woff") format("woff");
     font-display: swap;
-}
+} */
+
 
 /* reset */
 *{font-family: "Pretendard", "Apple SD Gothic Neo", "돋움", "Dotum", Tahoma, Verdana, sans-serif;}
