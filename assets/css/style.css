@@ -209,7 +209,7 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 .updateArrow button.slick-disabled{opacity: 0.5; cursor: inherit;}
 
 /********** error ***********/
-.errorPage{display: flex;align-items: center;justify-content: center;flex-direction: column;min-height: 100vh;}
+.errorPage{display: flex;align-items: center;justify-content: center;flex-direction: column;height: 100vh;height: var(--vh);margin-top: -80px;}
 .errorPage .errorText{margin-bottom: 60px;}
 .errorPage .errorText .textValorant{text-align: center;}
 .errorPage .errorText p{position: relative;margin-top: 60px;font-size: 28px;color: #ECE8E1;font-weight: 600;line-height: 170%;word-break: keep-all;text-align: center;}

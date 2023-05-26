@@ -305,6 +305,12 @@ function codeCopy() {
     alert("초대코드가 복사 되었습니다.");
 }
 
+// ios 사파리 height
+const setVh = () => {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
+};
+window.addEventListener('resize', setVh);
+setVh();
 
 $(document).ready(function() {
 
