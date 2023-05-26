@@ -312,7 +312,7 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .productSlideM .slick-dots{display: none !important;}
     .productSlideMControl{display: flex;align-items: center;justify-content: center;}
     .productSlideMControl .number, .productSlideMControl .number p, .productSlideMControl .number span{display: inline-block;font-size: 16px;color: #ECE8E1;font-weight: 400;line-height: 100%;text-align: center;letter-spacing: 0.07em;font-family: "DINNextLTPro-Regular";}
-    .productSlideBubble{top: 41px;left: 55px;display: flex;width: 201px;height: auto;padding: 13px 18px;transform: rotateY(180deg);font-size: 14px;}
+    .productSlideBubble{top: 41px;left: 55px;display: flex;width: 201px;height: auto;padding: 13px 18px;transform: rotateY(180deg);font-size: 14px;z-index: 9999999999;}
     .btnI{margin-left: 12px;width: 18px;height: 18px;}
 }
 @media screen and (max-width: 767px){
