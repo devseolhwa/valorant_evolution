@@ -143,6 +143,7 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 .shareCurrent .infoGray{font-size: 14px;color: #8B978F;font-weight: 400;line-height: 150%;}
 .eventBubble{position: relative;right: -50px;display: flex;width: 476px;height: 96px;padding-top: 20px;background-image: url(../images/bg_bubble.svg);background-size: 100%;background-repeat: no-repeat;box-sizing: border-box;-webkit-animation: bubbleBounce 3s infinite;-moz-animation: bubbleBounce 3s infinite;-ms-animation: bubbleBounce 3s infinite;-o-animation: bubbleBounce 3s infinite;animation: bubbleBounce 3s infinite;align-items: center;justify-content: center;}
 .eventBubble p{display: block;font-size: 24px;color: #FFFFFF;font-weight: 600;line-height: 140%;text-align: center;}
+.eventBubble p img{vertical-align: -20px;}
 .shareCurrent .dotList{margin-top: 50px;}
 .shareCurrent .dotList li{position: relative;padding-left: 24px;font-size: 20px;color: #CDC9C2;line-height: 150%;font-weight: 400;letter-spacing: -0.01em;word-break: keep-all;}
 .shareCurrent .dotList li:before{content: "";position: absolute;left: 10px;top: 12px;width: 4px;height: 4px;background-color: #CDC9C2;border-radius: 50%;}
@@ -248,6 +249,7 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .shareCurrent .dotList li{font-size: 18px;}
     .eventBubble{right: 0;width: 360px;height: 73px;padding-top: 16px;margin: 0 auto;}
     .eventBubble p{font-size: 17px;}
+    .eventBubble p img{vertical-align: -22px;}
     .productSection .productInner{max-width: 80%;height: auto;}
     .productText{width: calc(100% - 480px);padding-bottom: 50px;}
     .productText .date{font-size: min(3vw, 55px);}
@@ -314,7 +316,7 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .productSlideM .slick-dots{display: none !important;}
     .productSlideMControl{display: flex;align-items: center;justify-content: center;}
     .productSlideMControl .number, .productSlideMControl .number p, .productSlideMControl .number span{display: inline-block;font-size: 16px;color: #ECE8E1;font-weight: 400;line-height: 100%;text-align: center;letter-spacing: 0.07em;font-family: "DINNextLTPro-Regular";}
-    .productSlideBubble{top: 41px;left: 55px;display: flex;width: 201px;height: auto;padding: 13px 18px;font-size: 14px;z-index: 9999999999;}
+    .productSlideBubble{top: 41px;left: -33px;display: flex;width: 201px;height: auto;padding: 13px 18px;font-size: 14px;z-index: 9999999999;}
     .btnI{margin-left: 12px;width: 18px;height: 18px;}
 }
 @media screen and (max-width: 767px){
@@ -344,7 +346,9 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     #btnMenuOpen{top: 33px;left: 0;width: 60px;height: 40px;background-color: #8B978F;background-image: url(../images/icon_menu_m.svg);background-position: center;background-repeat: no-repeat;border-color: #8B978F;}
     #btnMenuOpen:before, #btnMenuOpen span:before, #btnMenuOpen span:after{display: none;}
     #btnMenuclose{left: 16px;}
-    #leftmenu{top: -81px;left: -1px;width: 300px;padding: 100px 25px 40px;z-index: 99999;}
+    #leftmenu{position: fixed;top: -1px;left: -1px;width: 300px;height: calc(100% + 2px);padding: 100px 25px 40px;overflow-y: auto;z-index: 99999;}
+    #leftmenu + .dim{position: fixed;top: 0;left: 0;right: 0;bottom: 0;width: 100%;background-color: rgba(0, 0, 0, 0.7);-webkit-overflow-scrolling: touch;z-index: 20001;overflow-y: auto;opacity: 0;visibility: hidden;pointer-events: none;-webkit-transition: all 0.5s ease;transition: all 0.5s ease;}
+    #leftmenu.active + .dim{opacity: 1;visibility: visible;}
     #leftmenu h4{font-size: 20px;}
     #leftmenu .bannerGroup{margin-bottom: 60px;}
     #leftmenu .bannerGroup li a p{font-size: 18px;}
@@ -388,8 +392,9 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .shareCurrent .currentNum li + li{margin-left: 40px;}
     .shareCurrent .currentNum li p{font-size: 18px;}
     .shareCurrent .currentNum li p.value{font-size: 16px;}
-    .eventBubble{right: -50px;width: 197px;height: 99px;background-image: url(../images/bg_bubble_m.svg);}
+    .eventBubble{right: -50px;width: 197px;height: 99px;padding-top: 20px;background-image: url(../images/bg_bubble_m.svg);}
     .eventBubble p{font-size: 18px;}
+    .eventBubble p img{vertical-align: middle;}
     .shareCurrent .dotList{margin-top: 35px;}
     .shareCurrent .dotList li{font-size: 16px;}
 

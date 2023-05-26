@@ -410,6 +410,7 @@ let cardSlide = {
     nextClick : function() {
         clearInterval(this._interval_id);
         this.next();
+        cardSlide.play(); // 추가
     },
     prev : function() {
         var tmp = this._items.length - 1;
@@ -437,6 +438,7 @@ let cardSlide = {
     prevClick : function() {
         clearInterval(this._interval_id);
         this.prev();
+        cardSlide.play(); // 추가
     },
     start : function() {
         clearInterval(this._interval_id);
