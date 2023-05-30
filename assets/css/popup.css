@@ -8,8 +8,8 @@
 .modarInner{position: relative;width: 520px;max-width: 100%;min-height: 360px;padding: 40px;background: #ECE8E1;box-sizing: border-box;color: #0F1923;}
 .modarPopup.show{opacity: 1;visibility: visible;-webkit-transition-delay: 0s;transition-delay: 0s;}
 .modarPopup.show .modarCenter{-webkit-animation: slideInUp 0.5s 50ms;-moz-animation: slideInUp 0.5s 50ms;-ms-animation: slideInUp 0.5s 50ms;-o-animation: slideInUp 0.5s 50ms;animation: slideInUp 0.5s 50ms;-webkit-animation-fill-mode: backwards;animation-fill-mode: backwards;}
-.jsModarClose{display: block;width: 100%;height: 72px;background: #CDC9C2;font-size: 36px;color: #A09D96;font-family: "Black Han Sans", sans-serif;cursor: inherit;}
-.jsModarClose.on{background: #FF4655;color: #ECE8E1;cursor: pointer;}
+.jsModarClose{display: block;width: 100%;height: 72px;background: #CDC9C2;font-size: 36px;color: #A09D96;font-family: "Black Han Sans", sans-serif;cursor: inherit;pointer-events: none;}
+.jsModarClose.on{background: #FF4655;color: #ECE8E1;cursor: pointer;pointer-events: inherit;}
 .btnCloseModar{position: absolute;right: 40px;top: 40px;width: 24px;height: 24px;background-image: url(../images/icon_popup_close.svg);background-position: center;background-repeat: no-repeat;overflow: hidden;text-indent: -9999px;white-space: nowrap;}
 
 .popupTitleXs{margin-top: 34px;font-size: 28px;color: #0F1923;font-weight: 600;line-height: 150%;word-break: keep-all;}

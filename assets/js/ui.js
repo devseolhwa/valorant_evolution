@@ -8,11 +8,19 @@ $(document).ready(function(){
     $("#btnMenuOpen").click(function(){     
         $("#btnMenuOpen").addClass("open");
         $("#leftmenu").fadeIn("400").addClass("active");
+        $("body").addClass("menuOpened");
+        $("body").on("scroll touchmove mousewheel", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
         return false;
     });
     $("#btnMenuclose").click(function(){  
         $("#btnMenuOpen").removeClass("open");
         $("#leftmenu").removeClass("active");
+        $("body").off("scroll touchmove mousewheel");
+        $("body").removeClass("menuOpened");
         return false;
     });
 
@@ -140,10 +148,10 @@ $(document).ready(function(){
             slidesToShow : 3,
             slidesToScroll: 1,
             //autoplay: false,
-            autoplaySpeed: 2000,
+            autoplaySpeed: 1300,
             speed: 700,
             centerMode: true,
-            centerPadding : "100px", 
+            centerPadding : "0", 
             variableWidth: true,
             infinite: true,
             pauseOnHover: false,
@@ -270,7 +278,7 @@ $(document).ready(function(){
             cardSlide.start(); // pc용 카드슬라이드 시작
             setTimeout(function(){
                 $("#btnRemove").trigger("click");
-            }, 2000);
+            }, 1300);
             isVisible2 = true;
             return true;
         }
@@ -364,45 +372,35 @@ let cardSlide = {
         $('#maxCardNumber').html(_limit_idx);
     },
     next : function() {
+        var tmp = this._items.length - 1;
+
         if ( this._is_start ) {
-            var tmp = this._items.length - 1;
-            this._items.each(function(index, item) {
-                var _zidx = Math.abs($(item).css('z-index'));
-                switch (_zidx) {
-                    case 0 :
-                        $(item).css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':(tmp * -1), 'opacity':'0'});
-                        $(item).removeClass('on');
-                        break;
-                    case 1 : $(item).css({'transform':'translate3d(0%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); $(item).addClass('on'); break;
-                    case 2 : $(item).css({'transform':'translate3d(18%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
-                    case 3 : $(item).css({'transform':'translate3d(29%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
-                    case 4 : $(item).css({'transform':'translate3d(37%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
-                    case 5 : $(item).css({'transform':'translate3d(43%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
-                    default : $(item).css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'0'}); break;
-                }
-            });
+            var _current_li = $(this._container).find('li:first-child');
+            _current_li.next('li').css({'transform':'translate3d(0%, 0px, 0px)', 'z-index':'0', 'opacity':'1'}).addClass('on');
+            _current_li.next('li').next('li').css({'transform':'translate3d(18%, 0px, 0px)', 'z-index':'-1', 'opacity':'1'});
+            _current_li.next('li').next('li').next('li').css({'transform':'translate3d(29%, 0px, 0px)', 'z-index':'-2', 'opacity':'1'});
+            _current_li.next('li').next('li').next('li').next('li').css({'transform':'translate3d(37%, 0px, 0px)', 'z-index':'-3', 'opacity':'1'});
+            _current_li.next('li').next('li').next('li').next('li').next('li').css({'transform':'translate3d(43%, 0px, 0px)', 'z-index':'-4', 'opacity':'1'});
+            var _tmp_li = _current_li.css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':(tmp * -1), 'opacity':'0'}).removeClass('on');
+            _current_li.remove();
+            _tmp_li.appendTo(this._container);
 
             if ( this._current_index == this._limit_index ) {
                 this._current_index = 1;
             } else {
                 this._current_index++;
             }
+
             this.showCount();
         } else {
-            this._items.each(function(index, item) {
-                var _zidx = Math.abs($(item).css('z-index'));
-                switch (_zidx) {
-                    case 0 :
-                        $(item).css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':(tmp * -1), 'opacity':'0'}).remove();
-                        break;
-                    case 1 : $(item).css({'transform':'translate3d(0%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); $(item).addClass('on'); break;
-                    case 2 : $(item).css({'transform':'translate3d(18%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
-                    case 3 : $(item).css({'transform':'translate3d(29%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
-                    case 4 : $(item).css({'transform':'translate3d(37%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
-                    case 5 : $(item).css({'transform':'translate3d(43%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'1'}); break;
-                    default : $(item).css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':((_zidx - 1) * -1), 'opacity':'0'}); break;
-                }
-            });
+            var _current_li = $(this._container).find('li:first-child');
+            _current_li.next('li').css({'transform':'translate3d(0%, 0px, 0px)', 'z-index':'0', 'opacity':'1'}).addClass('on');
+            _current_li.next('li').next('li').css({'transform':'translate3d(18%, 0px, 0px)', 'z-index':'-1', 'opacity':'1'});
+            _current_li.next('li').next('li').next('li').css({'transform':'translate3d(29%, 0px, 0px)', 'z-index':'-2', 'opacity':'1'});
+            _current_li.next('li').next('li').next('li').next('li').css({'transform':'translate3d(37%, 0px, 0px)', 'z-index':'-3', 'opacity':'1'});
+            _current_li.next('li').next('li').next('li').next('li').next('li').css({'transform':'translate3d(43%, 0px, 0px)', 'z-index':'-4', 'opacity':'1'});
+            _current_li.css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':(tmp * -1), 'opacity':'0'}).remove();
+
             this._items = this._container.find('li');
             this._is_start = true;
         }
@@ -410,23 +408,41 @@ let cardSlide = {
     nextClick : function() {
         clearInterval(this._interval_id);
         this.next();
-        cardSlide.play(); // 추가
+        this.play();
     },
     prev : function() {
         var tmp = this._items.length - 1;
-        this._items.each(function(index, item) {
-            var _zidx = Math.abs($(item).css('z-index'));
-            switch (_zidx) {
-                case tmp :
-                    $(item).addClass('on').css({'transform':'translate3d(0%, 0px, 0px)', 'z-index':'0', 'opacity':'1'});
-                    break;
-                case 0 : $(item).removeClass('on').css({'transform':'translate3d(18%, 0px, 0px)', 'z-index':((_zidx + 1) * -1), 'opacity':'1'}); break;
-                case 1 : $(item).css({'transform':'translate3d(29%, 0px, 0px)', 'z-index':((_zidx + 1) * -1), 'opacity':'1'}); break;
-                case 2 : $(item).css({'transform':'translate3d(37%, 0px, 0px)', 'z-index':((_zidx + 1) * -1), 'opacity':'1'}); break;
-                case 3 : $(item).css({'transform':'translate3d(43%, 0px, 0px)', 'z-index':((_zidx + 1) * -1), 'opacity':'1'}); break;
-                default : $(item).css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':((_zidx + 1) * -1), 'opacity':'0'}); break;
-            }
-        });
+
+        if ( this._is_start ) {
+            var _last_li = $(this._container).find('li:last-child');
+            var _tmp_li = _last_li.css({'transform':'translate3d(0%, 0px, 0px)', 'z-index':'0', 'opacity':'1'}).addClass('on');
+            _tmp_li.remove();
+            _tmp_li.prependTo(this._container);
+
+            _tmp_li.next('li').css({'transform':'translate3d(18%, 0px, 0px)', 'z-index':'-1', 'opacity':'1'}).removeClass('on');
+            _tmp_li.next('li').next('li').css({'transform':'translate3d(29%, 0px, 0px)', 'z-index':'-2', 'opacity':'1'});
+            _tmp_li.next('li').next('li').next('li').css({'transform':'translate3d(37%, 0px, 0px)', 'z-index':'-3', 'opacity':'1'});
+            _tmp_li.next('li').next('li').next('li').next('li').css({'transform':'translate3d(43%, 0px, 0px)', 'z-index':'-4', 'opacity':'1'});
+            _tmp_li.next('li').next('li').next('li').next('li').next('li').css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':'-5', 'opacity':'0'});
+        } else {
+
+            var _current_li = $(this._container).find('li:first-child');
+            _current_li.css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':(tmp * -1), 'opacity':'0'}).remove();
+
+            var _last_li = $(this._container).find('li:last-child');
+            var _tmp_li = _last_li.css({'transform':'translate3d(0%, 0px, 0px)', 'z-index':'0', 'opacity':'1'}).addClass('on');
+            _tmp_li.remove();
+            _tmp_li.prependTo(this._container);
+
+            _tmp_li.next('li').css({'transform':'translate3d(18%, 0px, 0px)', 'z-index':'-1', 'opacity':'1'}).removeClass('on');
+            _tmp_li.next('li').next('li').css({'transform':'translate3d(29%, 0px, 0px)', 'z-index':'-2', 'opacity':'1'});
+            _tmp_li.next('li').next('li').next('li').css({'transform':'translate3d(37%, 0px, 0px)', 'z-index':'-3', 'opacity':'1'});
+            _tmp_li.next('li').next('li').next('li').next('li').css({'transform':'translate3d(43%, 0px, 0px)', 'z-index':'-4', 'opacity':'1'});
+            _tmp_li.next('li').next('li').next('li').next('li').next('li').css({'transform':'translate3d(50%, 0px, 0px)', 'z-index':'-5', 'opacity':'0'});
+
+            this._items = this._container.find('li');
+            this._is_start = true;
+        }
 
         if ( this._current_index == 1 ) {
             this._current_index = this._limit_index;
@@ -438,19 +454,18 @@ let cardSlide = {
     prevClick : function() {
         clearInterval(this._interval_id);
         this.prev();
-        cardSlide.play(); // 추가
+        this.play();
     },
     start : function() {
-        clearInterval(this._interval_id);
-
         setTimeout(function() {
             cardSlide.play();
-        }, 2000);
+        }, 1300);
     },
     play : function() {
+        clearInterval(this._interval_id);
+
         this._interval_id = setInterval(function() {
             cardSlide.next();
-        }, 2000);
-        //console.log(this._interval_id);
+        }, 1300);
     }
 };

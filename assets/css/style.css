@@ -17,6 +17,7 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 .colorRed{color:#FF4655 !important;}
 .colorWhite{color:#fff !important;}
 .colorGray{color:#ECE8E1 !important;}
+.fontLtPro{font-family: "DINNextLTPro-Regular";font-feature-settings: 'salt' on;}
 
 /* btn */
 .btnCenter{text-align: center;}
@@ -31,8 +32,8 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 .bgRed:hover .bgRedHover{-webkit-transform: translateX(0) skew(10deg);transform: translateX(0) skew(10deg);}
 .btnLine {display: block;border: 1px solid rgba(236, 232, 225, 0.5);box-sizing: border-box;}
 .btnLine .btn {margin: 5px;}
-.btnBgGray{width: 165px;height: 60px !important;background-color: #CDC9C2;color: #A09D96;cursor: inherit;}
-.btnBgGray.on{background-color: #FF4655;color: #ECE8E1;cursor: pointer;}
+.btnBgGray{width: 165px;height: 60px !important;background-color: #CDC9C2;color: #A09D96;cursor: inherit;pointer-events: none;}
+.btnBgGray.on{background-color: #FF4655;color: #ECE8E1;cursor: pointer;pointer-events: inherit;}
 #btnHome{width: 280px;height: 72px;font-size: 20px;}
 #btnReservation{display: block;width: 382px;height: 76px;line-height: 76px;font-size: 25px;letter-spacing: 0.1em;}
 #btnReservationFull{width: 618px;height: 76px;font-size: 25px;letter-spacing: 0.1em;}
@@ -171,8 +172,8 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 .productSlidePc .flip-card-front {background-color: transparent;}
 .productSlidePc .flip-card-back {background-color: transparent;transform: rotateY(180deg);}
 .productSlideControl{display: flex;margin: 0 40px;align-items: flex-start;justify-content: space-between;}
-.productSlideControl p{display: flex;align-items: center;justify-content: flex-start;margin-top: 10px;font-size: 30px;color: #ECE8E1;font-weight: 400;letter-spacing: 0.07em;font-family: "DINNextLTPro-Regular";}
-.productSlideControl p span{font-family: "DINNextLTPro-Regular";}
+.productSlideControl p{display: flex;align-items: center;justify-content: flex-start;margin-top: 10px;font-size: 30px;color: #ECE8E1;font-weight: 400;letter-spacing: 0.07em;font-family: "DINNextLTPro-Regular";font-feature-settings: 'salt' on;}
+.productSlideControl p span{font-family: "DINNextLTPro-Regular";font-feature-settings: 'salt' on;}
 .productSlideArrows{display: flex;}
 .productSlideArrows button + button{margin-left: 15px;}
 .productSlideArrows #btnPrev, .productSlideArrows #btnNext{width: 80px;height: 80px;background-color: #FF4655;background-image: url(../images/icon_product_arrow.svg);background-position: center center;background-repeat: no-repeat;backdrop-filter: blur(3px);-webkit-backdrop-filter: blur(3px);overflow: hidden;text-indent: -9999px;white-space: nowrap;}
@@ -315,11 +316,13 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
     .productSlideM .flip-card-inner img{max-width: 223px;margin: 0 auto;}
     .productSlideM .slick-dots{display: none !important;}
     .productSlideMControl{display: flex;align-items: center;justify-content: center;}
-    .productSlideMControl .number, .productSlideMControl .number p, .productSlideMControl .number span{display: inline-block;font-size: 16px;color: #ECE8E1;font-weight: 400;line-height: 100%;text-align: center;letter-spacing: 0.07em;font-family: "DINNextLTPro-Regular";}
+    .productSlideMControl .number, .productSlideMControl .number p, .productSlideMControl .number span{display: inline-block;font-size: 16px;color: #ECE8E1;font-weight: 400;line-height: 100%;text-align: center;letter-spacing: 0.07em;font-family: "DINNextLTPro-Regular";font-feature-settings: 'salt' on;}
     .productSlideBubble{top: 41px;left: -33px;display: flex;width: 201px;height: auto;padding: 13px 18px;font-size: 14px;z-index: 9999999999;}
     .btnI{margin-left: 12px;width: 18px;height: 18px;}
 }
 @media screen and (max-width: 767px){
+    .menuOpened{overflow: hidden !important;-webkit-overflow-scrolling: touch;}
+
     .mobileShow {display: block !important;}
 	.mobileShowInline {display: inline-block !important;}
     .mobileHide{display: none !important;}

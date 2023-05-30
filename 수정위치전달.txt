@@ -1,0 +1,19 @@
+/** 수정위치 **/
+
+<!-- 20230530 --> 주석으로 표시
+
+
+# html수정
+login_on.html
+
+///////////////////////////
+
+end.html
+error.html 
+.fontLtPro 클래스가 추가됌
+
+
+# 수정위치 따로 표시X (덮어쓰기)
+ui.js
+style.css
+popup.css
