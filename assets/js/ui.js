@@ -9,17 +9,11 @@ $(document).ready(function(){
         $("#btnMenuOpen").addClass("open");
         $("#leftmenu").fadeIn("400").addClass("active");
         $("body").addClass("menuOpened");
-        $("body").on("scroll touchmove mousewheel", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-        });
         return false;
     });
     $("#btnMenuclose").click(function(){  
         $("#btnMenuOpen").removeClass("open");
         $("#leftmenu").removeClass("active");
-        $("body").off("scroll touchmove mousewheel");
         $("body").removeClass("menuOpened");
         return false;
     });
