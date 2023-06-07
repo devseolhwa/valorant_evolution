@@ -9,12 +9,14 @@ var modarOpener = null;
 $(document).on("click", ".jsModarClose , .btnCloseModar, .CloseModar", function(e) {
     var target = $(this).closest(".modarPopup").attr("id");
     modarClose("#" + target, modarOpener);
+    $("body").removeClass("popupOpened");
 });
 
 function modarOpen(_target) {
     $(_target).fadeIn("fast").addClass("show");
     $(_target).attr("tabindex", "0").focus();
     bodyScroll(true, $("body").width());
+    $("body").addClass("popupOpened");
 }
 
 function modarClose(_target, _opener) {

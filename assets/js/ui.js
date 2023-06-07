@@ -206,7 +206,7 @@ $(document).ready(function(){
             autoplaySpeed: 3000,
             speed: 700,
             dots: false,
-            infinite: false,
+            infinite: true,
             pauseOnHover: false,
             draggable: true,
             arrows: true,
@@ -236,7 +236,7 @@ $(document).ready(function(){
             asNavFor: ".updateThumbSlide",
             adaptiveHeight: true,
             dots: false,
-            infinite: false,
+            infinite: true,
             pauseOnHover: false,
             arrows: false
         });

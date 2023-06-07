@@ -208,7 +208,7 @@ body{margin-top: 80px !important;overflow: auto !important;height: 100% !importa
 .updateArrow{position: absolute;left: calc(50% - 660px);bottom: 197px;font-size: 0;z-index: 10;}
 .updateArrow button{width: 80px;height: 80px;background-color: rgba(236, 232, 225, 0.1);background-image: url(../images/icon_update_arrow.svg);background-position: center center;background-repeat: no-repeat;backdrop-filter: blur(3px);-webkit-backdrop-filter: blur(3px);border: 1px solid #ECE8E1;overflow: hidden;text-indent: -9999px;white-space: nowrap;}
 .updateArrow .next{transform: rotate(180deg);margin-left: 10px;}
-.updateArrow button.slick-disabled{/* opacity: 0.5; */cursor: inherit;}
+.updateArrow button.slick-disabled{/* opacity: 0.5; *//* cursor: inherit; */}
 
 /********** error ***********/
 .errorPage{display: flex;align-items: center;justify-content: center;flex-direction: column;height: 100vh;height: var(--vh);margin-top: -80px;}
