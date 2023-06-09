@@ -292,7 +292,11 @@ function urlCopy() {
     // url 복사
     const inputUrl = document.getElementById("inputUrl");
     inputUrl.select();
-    document.execCommand("copy");
+    //document.execCommand("copy");
+    window.navigator.clipboard.writeText(inputUrl.value).then(() => {
+        // 복사가 완료되면 호출된다.
+        alert("복사완료");
+    });
 
     var x = document.getElementById("toast")
     x.className = "show";
